@@ -1,0 +1,45 @@
+.header {
+  width: 320px;
+  height: 74px;
+  display: flex;
+  background-color: #073042;
+}
+
+.header__logo {
+  width: 38px;
+  height: 38px;
+  margin-top: 18px;
+  margin-left: 14px;
+}
+
+.signup-button {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  height: 16px;
+  align-items: center;
+  border: 0;
+  background: inherit;
+  color: white;
+  margin-top: 29px;
+  margin-left: 122px;
+  padding: 0;
+}
+
+.signin-button {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  padding: 0;
+  width: 54px;
+  height: 26px;
+  align-self: center;
+  margin-left: 14px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #3DDC84;
+}
