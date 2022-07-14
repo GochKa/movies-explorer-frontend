@@ -1,8 +1,7 @@
 .header {
-  width: 320px;
-  height: 74px;
   display: flex;
   background-color: #073042;
+  padding-bottom: 18px;
 }
 
 .header__logo {
