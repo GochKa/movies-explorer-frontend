@@ -1,0 +1,128 @@
+.portfolio {
+  background: #202020;
+  margin: 0;
+}
+
+.portfolio__title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  padding-top: 70px;
+  padding-bottom: 28px;
+  margin: 0;
+  margin-left: 14px;
+  width: 292px;
+  border-bottom: 1px solid #DADADA;
+}
+
+.portfolio__img {
+  border-radius: 10px;
+  width: 292px;
+  height: 352;
+  margin-top: 60px;
+  margin-left: 14px;
+  margin-bottom: 40px;
+}
+
+.portfolio__name {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  margin: 0;
+  margin-left: 14px;
+}
+
+.portfolio__subtitle {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  color: #FFFFFF;
+  margin: 0;
+  margin-top: 20px;
+  margin-left: 14px;
+}
+
+.portfolio__subtitle:nth-of-type(2) {
+  width: 292px;
+}
+
+.pottfolio__social {
+  display: flex;
+  padding: 0;
+}
+
+.pottfolio__social_item {
+  list-style: none;
+  margin-left: 14px;
+}
+
+.pottfolio__social_item-link {
+  text-decoration: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.pottfolio__social_item:nth-of-type(2) {
+  margin-left: 26px;
+}
+
+.pottfolio__list_title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #A0A0A0;
+  mix-blend-mode: normal;
+  margin: 0;
+  margin-top: 69px;
+  margin-left: 14px;
+  margin-bottom: 40px;
+}
+
+.pottfolio__list{
+  padding: 0;
+  margin: 0;
+}
+
+.pottfolio__list_item {
+  display: flex;
+  width: 292px;
+  margin-left: 14px;
+  margin-bottom: 19px;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.pottfolio__list_item:last-of-type {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 70px;
+}
+
+.pottfolio__list_item-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  width: 250px;
+  margin: 0;
+  margin-right: 24px;
+  margin-bottom: 19px;
+}
