@@ -109,8 +109,14 @@
   margin-top: 10px;
 }
 
+.about-project__grid_item-text {
+  margin: 0;
+  font-size: 11px;
+  line-height: 13px;
+}
+
 @media screen and (min-width: 768px) {
-  .about-project{
+  .about-project {
     padding-bottom: 90px;
   }
 
@@ -160,7 +166,65 @@
     grid-template-rows: 36px 31px;
   }
 
-  .about-project__grid_text{
+  .about-project__grid_text {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+
+
+@media screen and (min-width: 1280px) {
+  .about-project{
+    padding-bottom: 110px;
+  }
+
+  .about-project__title {
+    margin-left: 70px;
+    margin-right: 70px;
+    padding-top: 110px;
+  }
+
+  .about-project__info {
+    margin-left: 70px;
+    margin-right: 70px;
+    grid-template-columns: repeat(2, 550px);
+    gap: 26px 40px;
+  }
+
+  .about-project__stage {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .about-project__stage_info {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .about-project__time {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .about-project__time_info {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .about-project__grid {
+    margin-top: 110px;
+    margin-left: 70px;
+    grid-template-columns: 228px 912px;
+
+  }
+
+  .about-project__grid_text {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .about-project__grid_item-text {
     font-size: 14px;
     line-height: 17px;
   }
