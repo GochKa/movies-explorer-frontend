@@ -108,3 +108,60 @@
   color: #A0A0A0;
   margin-top: 10px;
 }
+
+@media screen and (min-width: 768px) {
+  .about-project{
+    padding-bottom: 90px;
+  }
+
+  .about-project__title {
+    padding-top: 90px;
+    margin-left: 50px;
+    font-size: 22px;
+    line-height: 27px;
+    margin-right: 50px;
+    padding-bottom: 23px;
+  }
+
+  .about-project__info {
+    display: grid;
+    grid-template-columns: 302px 317px;
+    grid-template-rows: 44px 58px;
+    gap: 22px 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 70px;
+  }
+
+  .about-project__stage {
+    margin: 0;
+    order: 1;
+  }
+
+  .about-project__stage_info {
+    margin: 0;
+    order: 3;
+  }
+
+  .about-project__time {
+    margin: 0;
+    order: 2;
+  }
+
+  .about-project__time_info {
+    margin: 0;
+    order: 4;
+  }
+
+  .about-project__grid {
+    margin-top: 93px;
+    margin-left: 50px;
+    grid-template-columns: 140px 528px;
+    grid-template-rows: 36px 31px;
+  }
+
+  .about-project__grid_text{
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
