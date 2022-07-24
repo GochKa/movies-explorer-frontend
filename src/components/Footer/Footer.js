@@ -5,6 +5,7 @@ function Footer() {
   return (
     <section className="footer">
       <p className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</p>
+      <div className="footer__flex">
       <ul className="footer__list">
         <li className="footer__list_link">
           <a className="footer__list_link-item" href="https://practicum.yandex.ru/">  
@@ -23,6 +24,7 @@ function Footer() {
         </li>
       </ul>
       <p className="footer__copyright">&copy; 2022</p>
+      </div>
     </section>
   )
 }
