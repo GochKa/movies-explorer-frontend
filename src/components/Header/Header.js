@@ -6,8 +6,8 @@ function Header(){
   return(
     <header className="header">
       <img src={logo} className="header__logo" alt="logo"></img>
-      <button className="signup-button">Регистрация</button>
-      <button className="signin-button">Войти</button>
+      <button className="header__signup-button">Регистрация</button>
+      <button className="header__signin-button">Войти</button>
     </header>
   )
 }
