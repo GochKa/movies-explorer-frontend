@@ -5,6 +5,7 @@ import AboutProject from "../AboutProject/AboutProject";
 import Techs from "../Techs/Techs"
 import Portfolio from "../Portfolio/Portfolio";
 import Footer from "../Footer/Footer";
+import AboutMe from "../AboutMe/AboutMe";
 function Main(){
   return(
     <>
@@ -12,6 +13,7 @@ function Main(){
       <Promo />
       <AboutProject />
       <Techs />
+      <AboutMe />
       <Portfolio />
       <Footer />
     </>
