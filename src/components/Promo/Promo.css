@@ -54,3 +54,33 @@
   font-size: 12px;
   line-height: 16px;
 }
+
+@media screen and (min-width: 768px) {
+  .promo__img {
+    width: 310px;
+    height: 304px;
+    margin-left: 229px;
+    margin-top: 140px;
+  }
+
+  .promo__title {
+    font-size: 40px;
+    line-height: 50px;
+    margin: 0;
+    margin-left: 44px;
+    margin-right: 44px;
+    margin-top: 48px;
+  }
+
+  .promo__subtitle{
+    margin-top: 22px;
+    margin-left: 254px;
+    margin-right: 254px;
+  }
+
+  .promo__button{
+    margin-top: 92px;
+    margin-left: 320px;
+    margin-bottom: 86px;
+  }
+}
