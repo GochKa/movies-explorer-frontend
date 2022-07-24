@@ -1,0 +1,141 @@
+.aboutme {
+  background: #202020;
+}
+
+.aboutme__title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  padding-top: 70px;
+  padding-bottom: 28px;
+  margin: 0;
+  margin-left: 14px;
+  margin-right: 14px;
+  border-bottom: 1px solid #DADADA;
+}
+
+.aboutme__img {
+  border-radius: 10px;
+  width: 292px;
+  height: 352px;
+  margin-top: 60px;
+  margin-left: 14px;
+  margin-bottom: 40px;
+}
+
+.aboutme__name {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  margin: 0;
+  margin-left: 14px;
+}
+
+.aboutme__subtitle {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  color: #FFFFFF;
+  margin: 0;
+  margin-top: 20px;
+  margin-left: 14px;
+  margin-right: 14px;
+}
+
+
+.aboutme__social {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  margin-top: 40px;
+}
+
+.aboutme__social_item {
+  list-style: none;
+  margin-left: 14px;
+}
+
+.aboutme__social_item-link {
+  text-decoration: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.aboutme__social_item:nth-of-type(2) {
+  margin-left: 26px;
+}
+
+@media screen and (min-width: 768px) {
+  
+
+  .aboutme__title {
+    font-size: 22px;
+    line-height: 27px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-top: 90px;
+    padding-bottom: 20px;
+  }
+
+  .aboutme__grid {
+    display: grid;
+    grid-template-columns: 364px 255px;
+    column-gap: 49px;
+    margin-left: 50px;
+    margin-top: 66px;
+  }
+
+  .aboutme__info{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aboutme__img {
+    margin: 0;
+    width: 255px;
+    height: 307px;
+    order: 1;
+  }
+
+  .aboutme__name {
+    margin: 0;
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .aboutme__subtitle {
+    margin: 0;
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 16px;
+  }
+  .aboutme__subtitle:nth-of-type(2){
+    margin-top: 20px;
+  }
+
+  .aboutme__social{
+    margin-top: 122px;
+  }
+
+  .aboutme__social_item{
+    margin: 0;
+  }
+
+  .aboutme__social_item:nth-of-type(2) {
+    margin-left: 20px;
+  }
+}
