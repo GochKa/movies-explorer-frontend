@@ -72,15 +72,55 @@
     margin-top: 48px;
   }
 
-  .promo__subtitle{
+  .promo__subtitle {
     margin-top: 22px;
     margin-left: 254px;
     margin-right: 254px;
   }
 
-  .promo__button{
+  .promo__button {
     margin-top: 92px;
     margin-left: 320px;
     margin-bottom: 86px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .promo__info {
+    display: grid;
+    grid-template-columns: 640px 1fr;
+    column-gap: 190px;
+    margin-left: 70px;
+    padding-top: 75px;
+  }
+
+  .promo__flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .promo__img {
+    order: 1;
+    margin: 0;
+  }
+
+  .promo__title {
+    margin: 0;
+    font-size: 50px;
+    line-height: 58px;
+    text-align: left;
+  }
+
+  .promo__subtitle {
+    margin: 0;
+    text-align: left;
+    margin-top: 36px;
+    width: 310px;
+  }
+
+  .promo__button {
+    margin: 0;
+    margin-top: 146px;
+    margin-bottom: 75px;
   }
 }
