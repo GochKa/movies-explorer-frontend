@@ -1,8 +1,13 @@
 @import url(../src/vendors/normalize.css);
 @import url(../src/vendors/Fonts/fonts.css);
 
+#root{
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 body {
-  margin: 0;
+  background-color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
