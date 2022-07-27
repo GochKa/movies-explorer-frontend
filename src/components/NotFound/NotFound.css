@@ -1,0 +1,71 @@
+.not-found {
+  background: #202020;
+  height: 100vh;
+}
+
+.not-found__status {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 97px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0;
+  padding-top: 329px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.not-found__message {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0;
+  margin-top: 10px;
+  padding-bottom: 284px;
+}
+
+.not-found__back {
+  text-decoration: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #4285F4;
+  margin: 0;
+  margin-left: 142px;
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .not-found__status {
+    font-size: 140px;
+    line-height: 169px;
+  }
+
+  .not-found__message {
+    font-size: 16px;
+    line-height: 19px;
+    padding-bottom: 184px;
+    margin-top: 5px;
+  }
+
+  .not-found__back {
+    font-size: 14px;
+    line-height: 17px;
+    margin-left: 363px;
+  }
+}
+
+@media screen and (min-width: 1280px){
+  .not-found__back{
+    margin-left: 619px;
+  }
+}
