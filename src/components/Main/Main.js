@@ -6,15 +6,16 @@ import Techs from "../Techs/Techs"
 import Portfolio from "../Portfolio/Portfolio";
 import Footer from "../Footer/Footer";
 import AboutMe from "../AboutMe/AboutMe";
+
 function Main(){
   return(
     <>
       <Header />
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
-      <Portfolio />
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+        <Portfolio />
       <Footer />
     </>
   )
