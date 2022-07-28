@@ -79,6 +79,13 @@
   margin-left: 26px;
 }
 
+@media screen and (min-width: 321px){
+  .aboutme__grid{
+    display: grid;
+    justify-items: center;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .aboutme__title {
     font-size: 22px;
@@ -90,11 +97,12 @@
   }
 
   .aboutme__grid {
-    display: grid;
+
     grid-template-columns: 364px 255px;
     column-gap: 49px;
     margin-left: 50px;
     margin-top: 66px;
+    justify-content: space-evenly;
   }
 
   .aboutme__info {
@@ -150,6 +158,7 @@
     margin-left: 70px;
     column-gap: 270px;
     grid-template-columns: 600px 270px;
+    justify-content: normal;
   }
 
   .aboutme__img {
