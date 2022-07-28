@@ -6,7 +6,6 @@
   width: 210px;
   height: 206px;
   margin-top: 70px;
-  margin-left: 55px;
 }
 
 .promo__title {
@@ -18,8 +17,6 @@
   letter-spacing: -0.04em;
   text-align: center;
   margin-top: 44px;
-  margin-left: 10px;
-  margin-right: 10px;
   color: white;
 }
 
@@ -40,7 +37,6 @@
 
 .promo__button {
   margin-top: 80px;
-  margin-left: 95px;
   margin-bottom: 30px;
   width: 129px;
   height: 36px;
@@ -55,11 +51,24 @@
   line-height: 16px;
 }
 
+.promo__info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.promo__flex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
 @media screen and (min-width: 768px) {
   .promo__img {
     width: 310px;
     height: 304px;
-    margin-left: 229px;
     margin-top: 140px;
   }
 
@@ -67,36 +76,33 @@
     font-size: 40px;
     line-height: 50px;
     margin: 0;
-    margin-left: 44px;
-    margin-right: 44px;
     margin-top: 48px;
   }
 
   .promo__subtitle {
     margin-top: 22px;
-    margin-left: 254px;
-    margin-right: 254px;
+
   }
 
   .promo__button {
     margin-top: 92px;
-    margin-left: 320px;
+
     margin-bottom: 86px;
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1200px) {
   .promo__info {
     display: grid;
     grid-template-columns: 640px 1fr;
     column-gap: 190px;
     margin-left: 70px;
     padding-top: 75px;
+    align-items: start;
   }
 
   .promo__flex {
-    display: flex;
-    flex-direction: column;
+    display: block;
   }
 
   .promo__img {
