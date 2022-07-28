@@ -115,6 +115,12 @@
   line-height: 13px;
 }
 
+@media screen and (min-width: 400px){
+  .about-project__grid{
+    justify-content: center;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .about-project {
     padding-bottom: 90px;
@@ -134,9 +140,9 @@
     grid-template-columns: 302px 317px;
     grid-template-rows: 44px 58px;
     gap: 22px 30px;
-    margin-left: 50px;
-    margin-right: 50px;
+
     margin-top: 70px;
+    justify-content: center;
   }
 
   .about-project__stage {
@@ -161,7 +167,7 @@
 
   .about-project__grid {
     margin-top: 93px;
-    margin-left: 50px;
+
     grid-template-columns: 140px 528px;
     grid-template-rows: 36px 31px;
   }
