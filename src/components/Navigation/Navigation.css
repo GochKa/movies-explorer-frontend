@@ -61,11 +61,11 @@
 
 .navigation__link_profile {
   display: flex;
-  margin-left: 110px;
-  margin-right: 110px;
+
   text-decoration: none;
   align-items: center;
   padding-bottom: 48px;
+  justify-content: center;
 }
 
 .navigation__link_profile-text {
@@ -94,18 +94,16 @@
   height: 10px;
 }
 
+
+
 @media screen and (min-width: 768px){
     .navigation{
       width: 520px;
-      margin-left: 248px;
+      left:auto;
     }
 
     .navigation__list{
       margin-left: 90px;
       margin-right: 90px;
-    }
-
-    .navigation__link_profile{
-      margin-left: 210px;
     }
 }
