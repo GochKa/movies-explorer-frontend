@@ -3,6 +3,7 @@
   background-color: #073042;
   padding-bottom: 18px;
   align-items: center;
+  justify-content: center;
 }
 
 .header__logo {
@@ -42,6 +43,7 @@
   justify-content: center;
   margin-left: 14px;
 }
+
 
 
 @media screen and (min-width: 768px) {
