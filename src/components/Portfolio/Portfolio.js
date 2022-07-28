@@ -9,22 +9,34 @@ function Portfolio(){
       <h3 className="pottfolio__list_title">Портфолио</h3>
       <ul className="pottfolio__list">
         <li className="pottfolio__list_item">
-          <p className="pottfolio__list_item-title">Статичный сайт</p>
-          <a href="https://github.com/GochKa/First-project">
-            <img className="pottfolio__list_item-marker" src={marker} alt="Стрелочка"></img>
+          <div className="pottfolio__list_item-block">
+            <a target="blank" href="https://github.com/GochKa/First-project" className="pottfolio__list_item-link">
+              <p className="pottfolio__list_item-title">Статичный сайт</p>
+            </a>
+            <a target="blank" href="https://github.com/GochKa/First-project" className="pottfolio__list_item-link">
+              <img className="pottfolio__list_item-marker" src={marker} alt="Стрелочка"></img>
+            </a>
+          </div> 
+        </li>
+        <li className="pottfolio__list_item">
+        <div className="pottfolio__list_item-block">
+          <a target="blank" href="https://github.com/GochKa/russian-travel" className="pottfolio__list_item-link">
+            <p className="pottfolio__list_item-title">Адаптивный сайт</p>
           </a>
+          <a target="blank" href="https://github.com/GochKa/russian-travel" className="pottfolio__list_item-link">  
+            <img className="pottfolio__list_item-marker" src={marker} alt="Стрелочка" ></img>
+          </a>
+        </div>
         </li>
         <li className="pottfolio__list_item">
-        <p className="pottfolio__list_item-title">Адаптивный сайт</p>
-        <a href="https://github.com/GochKa/russian-travel">  
-          <img className="pottfolio__list_item-marker" src={marker} alt="Стрелочка"></img>
-        </a>
-        </li>
-        <li className="pottfolio__list_item">
-        <p className="pottfolio__list_item-title">Одностраничное приложение</p>
-        <a href="https://github.com/GochKa/react-mesto-api-full">
-          <img className="pottfolio__list_item-marker" src={marker} alt="Стрелочка"></img>
-        </a>  
+        <div className="pottfolio__list_item-block">
+          <a target="blank" href="https://github.com/GochKa/react-mesto-api-full" className="pottfolio__list_item-link">
+           <p className="pottfolio__list_item-title">Одностраничное приложение</p>
+          </a>
+          <a target="blank" href="https://github.com/GochKa/react-mesto-api-full" className="pottfolio__list_item-link">
+            <img className="pottfolio__list_item-marker" src={marker} alt="Стрелочка"></img>
+          </a>  
+        </div>
         </li>
       </ul>
     </section>

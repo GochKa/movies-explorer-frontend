@@ -20,20 +20,25 @@
 .pottfolio__list {
   padding: 0;
   margin: 0;
+  margin-right: 14px;
 }
 
 .pottfolio__list_item {
-  display: flex;
-  margin-right: 14px;
   margin-left: 14px;
   margin-bottom: 19px;
   border-bottom: 1px solid #E6E6E6;
+  list-style: none;
 }
 
 .pottfolio__list_item:last-of-type {
   border: 0;
   margin-bottom: 0;
   padding-bottom: 70px;
+}
+
+.pottfolio__list_item-block{
+  display: flex;
+  justify-content: space-between;
 }
 
 .pottfolio__list_item-title {
@@ -44,15 +49,17 @@
   line-height: 28px;
   letter-spacing: -0.04em;
   color: #FFFFFF;
-  width: 250px;
   margin: 0;
-  margin-right: 24px;
   margin-bottom: 19px;
 }
 
 .pottfolio__list_item-marker {
   width: 18px;
   height: 28px;
+}
+
+.pottfolio__list_item-link{
+  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -66,6 +73,7 @@
 
   .pottfolio__list {
     margin-left: 50px;
+    margin-right: 50px;
   }
 
   .pottfolio__list_item {
@@ -76,8 +84,6 @@
   .pottfolio__list_item-title {
     font-size: 28px;
     line-height: 50px;
-    margin-right: 255px;
-    width: 386px;
   }
 
   .pottfolio__list_item-marker {
@@ -109,8 +115,6 @@
   .pottfolio__list_item-title {
     font-size: 30px;
     line-height: 50px;
-    width: 880px;
-    margin-right: 231px;
   }
 
   .pottfolio__list_item:last-of-type {
