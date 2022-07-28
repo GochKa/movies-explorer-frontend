@@ -4,10 +4,10 @@ import "./Profile.css";
 
 import NavTab from "../NavTab/NavTab";
 
-function Profile(){
+function Profile(props){
   return (
     <section className="profile">
-      <NavTab />
+      <NavTab onClick={props.onMenu}/>
       <form className="profile__form">
         <div className="profile__form_container">
           <h2 className="profile__form_container-title">Привет, Георгий!</h2>
