@@ -9,8 +9,9 @@ function Login(){
       <Link to="/">
       <img src={logo} alt="Лого" className="login__logo"/>
       </Link>
-      <h2 className="login__title">Рады видеть!</h2>
+
       <form className="login__form">
+      <h2 className="login__title">Рады видеть!</h2>
         <p className="login__form_text">E-mail</p>
         <input className="login__form_input"/>
         <p className="login__form_text">Пароль</p>
@@ -18,11 +19,12 @@ function Login(){
         <Link to="/movies">
           <button className="login__button">Войти</button>
         </Link>
-      </form>
-      <div className="login__subtitle">
+        <div className="login__subtitle">
       <p className="login__text">Ещё не зарегистрированы?</p>
       <Link to="/signup" className="login__link_signup">Регистрация</Link>
       </div>
+      </form>
+
     </section>
   )
 }
