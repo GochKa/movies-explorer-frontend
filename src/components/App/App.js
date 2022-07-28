@@ -32,7 +32,7 @@ function App() {
       <Route exact path="/profile">
         <Profile onMenu={navigationClick}/>
       </Route>
-      <Route exact path="/saved-movies"><SavedMovies /></Route>
+      <Route exact path="/saved-movies"><SavedMovies onMenu={navigationClick}/></Route>
       <Route exact path="*"><NotFound /></Route>
     </Switch>
     <Navigation isOpen={isNavigationOpen} onClose={closeNavigation}/>
