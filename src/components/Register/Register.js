@@ -8,8 +8,8 @@ function Register(){
       <Link to="/">
       <img src={logo} alt="Лого" className="register__logo"/>
       </Link>
-      <h1 className="register__title">Добро пожаловать!</h1>
       <form className="register__form">
+      <h1 className="register__title">Добро пожаловать!</h1>
         <p className="register__form_input-title">Имя</p>
         <input className="register__form_input"/>
         <p className="register__form_input-title">E-mail</p>

@@ -52,6 +52,7 @@
   font-size: 10px;
   line-height: 12px;
   color: #8B8B8B;
+
 }
 
 .rerister__button {
@@ -62,11 +63,17 @@
   background: #4285F4;
   border-radius: 3px;
   cursor: pointer;
+  color: #FFFFFF;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 .register__subtitle {
   display: flex;
-  margin-left: 66px;
+  justify-content: center;
 }
 
 .register__text {
@@ -95,6 +102,18 @@
   margin-left: 7px;
 }
 
+@media screen and (min-width: 400px){
+  .register__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .register__form_input-title{
+    margin-right: 225px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .register__logo {
     margin-top: 232px;
@@ -104,16 +123,11 @@
 
   .register__title {
     text-align: left;
-    margin-left: 186px;
     margin-bottom: 40px;
     margin-top: 0;
+    margin-right: 155px;
   }
 
-  .register__form {
-    display: flex;
-    flex-direction: column;
-    margin-left: 186px;
-  }
 
   .register__form_input {
     width: 396px;
@@ -127,10 +141,6 @@
     width: 396px;
   }
 
-  .register__subtitle {
-    margin-left: 275px;
-  }
-
   .register__text {
     margin-top: 16px;
   }
@@ -140,23 +150,18 @@
   }
 }
 
+@media screen and (min-width: 770px){
+  .register__form_input-title{
+    margin-right: 357px;
+  }
+}
+
 @media screen and (min-width: 1280px) {
   .register__logo {
     margin-top: 70px;
     margin-left: 442px;
   }
 
-  .register__title {
-    margin-left: 442px;
-  }
-
-  .register__form {
-    margin-left: 442px;
-  }
-
-  .register__subtitle {
-    margin-left: 531px;
-  }
 
   .register__text {
     font-size: 14px;
@@ -167,4 +172,6 @@
     font-size: 14px;
     line-height: 17px;
   }
+
+
 }
