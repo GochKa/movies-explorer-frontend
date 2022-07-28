@@ -6,7 +6,7 @@ function MoviesCard(props){
     <section className="movies-card">
       <div className="card">
       <button className="button_save">Сохранить</button>
-      <img className="card__img" src={props.card} alt="" />
+      <img className="card__img" src={props.card} alt="Тут картинка" />
         <div className="card__description">
           <ul className="card__description-container">
             <li className="card__title">{props.title}</li>

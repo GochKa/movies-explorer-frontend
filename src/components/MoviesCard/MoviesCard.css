@@ -79,3 +79,15 @@
     height: 190px;
   }
 }
+
+@media screen and (min-width: 1280px){
+  .button_save{
+    top: 14px;
+    right: 14px;
+  }
+
+  .card__img{
+    width: 360px;
+    height: 201px;
+  }
+}
