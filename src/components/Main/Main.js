@@ -11,11 +11,13 @@ function Main(){
   return(
     <>
       <Header />
+      <main className="main">
         <Promo />
         <AboutProject />
         <Techs />
         <AboutMe />
         <Portfolio />
+      </main>
       <Footer />
     </>
   )
