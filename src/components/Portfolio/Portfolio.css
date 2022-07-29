@@ -1,0 +1,123 @@
+.portfolio {
+  background: #202020;
+  margin: 0;
+}
+
+.pottfolio__list_title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #A0A0A0;
+  mix-blend-mode: normal;
+  margin: 0;
+  padding-top: 69px;
+  margin-left: 14px;
+  margin-bottom: 40px;
+}
+
+.pottfolio__list {
+  padding: 0;
+  margin: 0;
+  margin-right: 14px;
+}
+
+.pottfolio__list_item {
+  margin-left: 14px;
+  margin-bottom: 19px;
+  border-bottom: 1px solid #E6E6E6;
+  list-style: none;
+}
+
+.pottfolio__list_item:last-of-type {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 70px;
+}
+
+.pottfolio__list_item-block{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pottfolio__list_item-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  margin: 0;
+  margin-bottom: 19px;
+}
+
+.pottfolio__list_item-marker {
+  width: 18px;
+  height: 28px;
+}
+
+.pottfolio__list_item-link{
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .pottfolio__list_title {
+    padding-top: 90px;
+    font-size: 18px;
+    line-height: 20px;
+    margin-left: 50px;
+    margin-bottom: 40px;
+  }
+
+  .pottfolio__list {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .pottfolio__list_item {
+    margin-left: 0;
+    margin-right: 50px;
+  }
+
+  .pottfolio__list_item-title {
+    font-size: 28px;
+    line-height: 50px;
+  }
+
+  .pottfolio__list_item-marker {
+    width: 27px;
+    height: 60px;
+  }
+
+  .pottfolio__list_item:last-of-type {
+    padding-bottom: 90px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .pottfolio__list_title {
+    padding-top: 100px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-bottom: 50px;
+  }
+
+  .pottfolio__list{
+    margin-left: 70px;
+  }
+
+  .pottfolio__list_item{
+    margin-right: 70px;
+  }
+
+  .pottfolio__list_item-title {
+    font-size: 30px;
+    line-height: 50px;
+  }
+
+  .pottfolio__list_item:last-of-type {
+    padding-bottom: 125px;
+  }
+}

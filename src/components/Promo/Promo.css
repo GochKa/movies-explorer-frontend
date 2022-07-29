@@ -1,0 +1,132 @@
+.promo {
+  background-color: #073042;
+}
+
+.promo__img {
+  width: 210px;
+  height: 206px;
+  margin-top: 70px;
+}
+
+.promo__title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 38px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin-top: 44px;
+  color: white;
+}
+
+.promo__subtitle {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #FFFFFF;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  margin-top: 24px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.promo__button {
+  margin-top: 80px;
+  margin-bottom: 30px;
+  width: 129px;
+  height: 36px;
+  border: 1px solid white;
+  border-radius: 3px;
+  background-color: inherit;
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.promo__info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.promo__flex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .promo__img {
+    width: 310px;
+    height: 304px;
+    margin-top: 140px;
+  }
+
+  .promo__title {
+    font-size: 40px;
+    line-height: 50px;
+    margin: 0;
+    margin-top: 48px;
+  }
+
+  .promo__subtitle {
+    margin-top: 22px;
+
+  }
+
+  .promo__button {
+    margin-top: 92px;
+
+    margin-bottom: 86px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .promo__info {
+    display: grid;
+    grid-template-columns: 640px 1fr;
+    column-gap: 190px;
+    margin-left: 70px;
+    padding-top: 75px;
+    align-items: start;
+  }
+
+  .promo__flex {
+    display: block;
+  }
+
+  .promo__img {
+    order: 1;
+    margin: 0;
+  }
+
+  .promo__title {
+    margin: 0;
+    font-size: 50px;
+    line-height: 58px;
+    text-align: left;
+  }
+
+  .promo__subtitle {
+    margin: 0;
+    text-align: left;
+    margin-top: 36px;
+    width: 310px;
+  }
+
+  .promo__button {
+    margin: 0;
+    margin-top: 146px;
+    margin-bottom: 75px;
+  }
+}

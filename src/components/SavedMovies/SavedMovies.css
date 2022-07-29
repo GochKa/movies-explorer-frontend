@@ -1,0 +1,11 @@
+.savedmovies{
+  background: #202020;
+  height: max-content;
+
+}
+
+@media screen and (min-width: 1280px){
+  .savedmovies{
+    height: 100vh;
+  }
+}

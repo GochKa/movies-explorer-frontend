@@ -1,0 +1,37 @@
+.more {
+  background: #202020;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.more__button {
+  background: #2F2F2F;
+  border-radius: 6px;
+  width: 240px;
+  height: 36px;
+  border: 0;
+  padding: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .more {
+    padding-top: 62px;
+    padding-bottom: 52px;
+  }
+
+  .more__button {
+    width: 320px;
+
+  }
+}
