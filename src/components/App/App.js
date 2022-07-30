@@ -12,7 +12,6 @@ import Navigation from "../Navigation/Navigation";
 import * as auth from "../../utils/auth"
 
 function App() {
-
   const [loggedIn, setLoggedIn] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -28,6 +27,7 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
+          
             history.push(path);
           }
         })
