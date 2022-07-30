@@ -18,12 +18,14 @@ function Profile(props){
               </label>
               <input className="form__item form__item-profile" />
             </div>
+            <span id="name-input-err" className="form-item-err"></span>
             <div className="profile__form_inputs-container">
               <label className="form__field-profile">
                 Почта
               </label>
               <input className="form__item form__item-profile" />
             </div>
+            <span id="name-input-err" className="form-item-err"></span>
           </fieldset>
         </div>
         <button className="profile__edit-button">Редактировать</button>
