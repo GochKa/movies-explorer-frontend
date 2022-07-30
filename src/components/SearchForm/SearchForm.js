@@ -4,7 +4,7 @@ import sbmbutton from "../../images/find_form.svg"
 function SearchForm(){
   return(
     <form className="searchform">
-      <input className="searchform__input" placeholder="Фильм" required="true"/>
+      <input className="searchform__input" placeholder="Фильм" required/>
       <span id="searchform-input-err" className="form-item-err"></span>
       <button type="submit" className="searchform__submit">
         <img src={sbmbutton} alt="кнопка формы"/>
