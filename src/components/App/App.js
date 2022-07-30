@@ -18,7 +18,7 @@ function App() {
 
   const history = useHistory();
   let location = useLocation();
-  
+
   useEffect(() => {
     const path = location.pathname;
     const jwt = localStorage.getItem("jwt");
@@ -100,7 +100,9 @@ function App() {
   return (
     <>
     <Switch>
-      <Route exact path='/'><Main /></Route>
+      <Route exact path='/'>
+        <Main />
+      </Route>
       <Route exact path='/movies'>
         <Movies onMenu={navigationClick}/>
       </Route>
@@ -112,8 +114,12 @@ function App() {
       <Route exact path="/profile">
         <Profile onMenu={navigationClick}/>
       </Route>
-      <Route exact path="/saved-movies"><SavedMovies onMenu={navigationClick}/></Route>
-      <Route exact path="*"><NotFound /></Route>
+      <Route exact path="/saved-movies">
+        <SavedMovies onMenu={navigationClick}/>
+      </Route>
+      <Route exact path="*">
+        <NotFound />
+      </Route>
     </Switch>
     <Navigation isOpen={isNavigationOpen} onClose={closeNavigation}/>
     </>
