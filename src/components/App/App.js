@@ -10,13 +10,36 @@ import NotFound from "../NotFound/NotFound";
 import React, {useState, useEffect} from "react";
 import Navigation from "../Navigation/Navigation";
 import * as auth from "../../utils/auth"
-
+import  CurrentUserContext  from "../../context/CurrentUserContext"
+import mainApi from '../../utils/MainApi'
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [message, setMessage] = useState("");
-
+  const [currentUser, setCurrentUser] = React.useState({})
   const history = useHistory();
   let location = useLocation();
+
+
+  
+//Эффект getUserInfo
+React.useEffect(() =>{
+  mainApi.getUserData()
+  .then((res) =>{
+    setCurrentUser(res)
+  })
+  .catch((err) =>{
+    console.error(err)
+  })
+}, []);
+
+function handleUpdateUser({ name, email }) {
+  mainApi
+    .editUserInfo({ name, email })
+    .then((userData) => {
+      setCurrentUser(userData.data);
+    })
+    .catch((err) => console.log(err));
+}
 
   useEffect(() => {
     const path = location.pathname;
@@ -98,7 +121,7 @@ function App() {
     setNavigationOpen()
   }
   return (
-    <>
+    <CurrentUserContext.Provider value={currentUser}>
     <Switch>
       <Route exact path='/'>
         <Main />
@@ -112,7 +135,7 @@ function App() {
       <Route exact path="/signin">
         <Login onLogin={handleLogin} loggedIn={loggedIn} message={message}/></Route>
       <Route exact path="/profile">
-        <Profile onMenu={navigationClick}/>
+        <Profile onMenu={navigationClick} handleUpdateUser={handleUpdateUser} loggedIn={loggedIn}/>
       </Route>
       <Route exact path="/saved-movies">
         <SavedMovies onMenu={navigationClick}/>
@@ -122,7 +145,7 @@ function App() {
       </Route>
     </Switch>
     <Navigation isOpen={isNavigationOpen} onClose={closeNavigation}/>
-    </>
+    </CurrentUserContext.Provider>
   );
 }
 
