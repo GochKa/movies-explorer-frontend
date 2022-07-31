@@ -10,24 +10,24 @@ class MainApi {
     return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  getUserData(jwt) {
-    return fetch(`${this._url}${"users"}/${"me"}`, {
+  getUserData() {
+    return fetch("https://api.movies.gocha.nomoredomains.xyz/users/me", {
       method: "GET",
       headers: {
-        authorization: `Bearer ${jwt}`,
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     }).then(this._getResponse);
   }
 
-  editUserInfo(newData) {
-    return fetch(`${this._url}users/me`, {
+  editUserInfo({name, email}) {
+    return fetch("https://api.movies.gocha.nomoredomains.xyz/users/me", {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: newData.name,
-        email: newData.email,
+        name,
+        email
       }),
     }).then(this._getResponse);
   }
