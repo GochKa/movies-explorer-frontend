@@ -38,7 +38,7 @@
   content: "";
   width: 16px;
   height: 16px;
-  background-color: #FFFFFF;
+  background-color: #EBEBEB;
   border-radius: 100%;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .filter-checkbox__invisible-checkbox:checked+.filter-checkbox__visible-checkbox::after {
-  background-color: #FFFFFF;
+  background-color: #EBEBEB;
   flex-direction: row-reverse;
 }
 
