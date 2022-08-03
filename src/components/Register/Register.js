@@ -1,16 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { Link } from 'react-router-dom'
 import "./Register.css"
 import logo from "../../images/logo.svg";
 function Register(props){
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [nameError, setNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [formValid, setFormValid] = useState(false);
-
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [nameError, setNameError] = React.useState("");
+  const [emailError, setEmailError] = React.useState("");
+  const [passwordError, setPasswordError] = React.useState("");
+  const [formValid, setFormValid] = React.useState(false);
 
   function handleChangeName(e) {
     const validName = /^[a-zA-Z- ]+$/.test(e.target.value);
@@ -54,7 +53,7 @@ function Register(props){
     props.onRegister(name, email, password);
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (
       name &&
       email &&
@@ -68,7 +67,6 @@ function Register(props){
       setFormValid(false);
     }
   }, [name, email, password, nameError, emailError, passwordError]);
-
   return(
     <section className="register">
       <Link to="/">
@@ -77,26 +75,36 @@ function Register(props){
       <form className="register__form" onSubmit={handleSubmit}>
       <h1 className="register__title">Добро пожаловать!</h1>
         <p className="register__form_input-title">Имя</p>
-        <input className="register__form_input" onChange={handleChangeName}/>
-        <span id="name-input-error" className="form-item-err">
+        <input className="register__form_input" 
+          type="text"
+          value={name}
+          onChange={handleChangeName}
+          required={true}
+          />
+        <span id="name-input-error" className="form__span-error">
           {nameError}
         </span>
         <p className="register__form_input-title">E-mail</p>
-        <input className="register__form_input" onChange={handleChangeEmail}/>
-        <span id="name-input-error" className="form-item-err">
+        <input className="register__form_input"
+          type="text"
+          value={email}
+          onChange={handleChangeEmail}
+          required={true}
+          />
+        <span id="name-input-error" className="form__span-error">
           {emailError}
         </span>
         <p className="register__form_input-title">Пароль</p>
-        <input className="register__form_input" onChange={handleChangePassword}/>
-        <span id="name-input-error" className="form-item-err">
+        <input className="register__form_input"
+          type="password"
+          value={password}
+          onChange={handleChangePassword}
+          required={true}
+          />
+         <span id="about-input-error" className="form__span-error">
           {passwordError}
         </span>
-        
-      <div className="form__handlers">
-        <div className="form__item-response">
-          {props.message}
-        </div>
-        <button
+                <button
           className={`rerister__button ${
             !formValid ? "rerister__button_disabled" : ""
           }`}
@@ -105,7 +113,6 @@ function Register(props){
         >
           Зарегистрироваться
         </button>
-        </div>
       </form>
       <div className="register__subtitle">
       <p className="register__text">Уже зарегистрированны?</p>
