@@ -1,4 +1,4 @@
-import { MAIN_API } from "../utils/config";
+import { MAIN_API } from "./config";
 
 class MainApi {
   constructor(options) {
@@ -10,24 +10,24 @@ class MainApi {
     return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  getUserData() {
-    return fetch("https://api.movies.gocha.nomoredomains.xyz/users/me", {
+  getUserData(jwt) {
+    return fetch(`${this._url}${"users"}/${"me"}`, {
       method: "GET",
       headers: {
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        authorization: `Bearer ${jwt}`,
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     }).then(this._getResponse);
   }
 
-  editUserInfo({name, email}) {
-    return fetch("https://api.movies.gocha.nomoredomains.xyz/users/me", {
+  editUserInfo(newData) {
+    return fetch(`${this._url}users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name,
-        email
+        name: newData.name,
+        email: newData.email,
       }),
     }).then(this._getResponse);
   }
@@ -43,27 +43,15 @@ class MainApi {
     }).then(this._getResponse);
   }
 
-  addMovie(movie, jwt) {
+  addMovie(data) {
     return fetch(`${this._url}${"movies"}`, {
       method: "POST",
       headers: {
-        authorization: `Bearer ${jwt}`,
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({
-        country: movie.country,
-        director: movie.director,
-        duration: movie.duration,
-        year: movie.year,
-        description: movie.description,
-        image: movie.image,
-        trailer: movie.trailer,
-        thumbnail: movie.thumbnail,
-        movieId: movie.movieId,
-        nameRU: movie.nameRU,
-        nameEN: movie.nameEN,
-      }),
+      body: JSON.stringify(data),
     }).then(this._getResponse);
   }
 
@@ -78,6 +66,7 @@ class MainApi {
     }).then(this._getResponse);
   }
 }
+
 
 const mainApi = new MainApi({
   url: MAIN_API,

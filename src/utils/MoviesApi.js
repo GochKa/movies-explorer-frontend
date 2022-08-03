@@ -1,9 +1,10 @@
-import { BASE_URL } from "../utils/config";
+import { BASE_URL } from "./config";
 
 const headers = {
   Accept: "application/json",
   "Content-Type": "application/json",
 };
+
 
 const getResponse = (res) => {
   if (res.ok) {

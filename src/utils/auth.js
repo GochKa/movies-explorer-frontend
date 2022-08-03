@@ -1,6 +1,7 @@
-import { AUTH } from "../utils/config";
+import { AUTH } from "./config";
 
 const BASE_URL = AUTH;
+
 const headers = {
   Accept: "application/json",
   "Content-Type": "application/json",
@@ -14,7 +15,7 @@ const getResponse = (res) => {
 };
 
 export const register = (name, email, password) => {
-  return fetch("https://api.movies.gocha.nomoredomains.xyz/signup", {
+  return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: headers,
     body: JSON.stringify({
@@ -28,7 +29,7 @@ export const register = (name, email, password) => {
 };
 
 export const authorize = (email, password) => {
-  return fetch("https://api.movies.gocha.nomoredomains.xyz/signin", {
+  return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     headers: headers,
     body: JSON.stringify({
