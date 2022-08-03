@@ -31,12 +31,10 @@
 .profile__form_inputs-container {
   display: flex;
   width: 260px;
-  height: 30px;
-  align-items: center;
 }
 
 .profile__form_inputs-container:first-of-type {
-  padding-bottom: 17px;
+  padding-bottom: 16px;
   border-bottom: 1px solid #424242;
 }
 
@@ -63,7 +61,7 @@
   line-height: 13px;
   text-align: right;
   color: #FFFFFF;
-  width: 150px;
+  width: 140px;
   margin: 0;
   padding: 0;
   border: 0;
