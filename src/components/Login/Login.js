@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { Link } from 'react-router-dom'
 import "./Login.css"
 import logo from "../../images/logo.svg";
 
 function Login(props){
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [formValid, setFormValid] = useState(false);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [emailError, setEmailError] = React.useState("");
+  const [passwordError, setPasswordError] = React.useState("");
+  const [formValid, setFormValid] = React.useState(false);
 
   function handleChangeEmail(e) {
     const validEmail = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i.test(
@@ -41,7 +41,7 @@ function Login(props){
     props.onLogin(email, password);
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (props.loggedIn) {
       setEmail("");
       setPassword("");
@@ -55,6 +55,7 @@ function Login(props){
       setFormValid(false);
     }
   }, [email, password, emailError, passwordError]);
+
   return(
     <section className="login">
       <Link to="/">
@@ -64,14 +65,15 @@ function Login(props){
       <form className="login__form" onSubmit={handleSubmit}>
       <h2 className="login__title">Рады видеть!</h2>
         <p className="login__form_text">E-mail</p>
-        <input className="login__form_input" type="email" onChange={handleChangeEmail} required/>
-        <span id="searchform-input-err" className="form-item-err">{emailError}</span>
+        <input className="login__form_input" onChange={handleChangeEmail} required={true} value={email}/>
+        <span id="name-input-error" className="form__item-error">
+            {emailError}
+          </span>
         <p className="login__form_text">Пароль</p>
-        <input className="login__form_input" type="password" onChange={handleChangePassword} required/>
-        <span id="searchform-input-err" className="form-item-err">{passwordError}</span>
-        <div className="form__item-response">
-          {props.message}
-        </div>
+        <input className="login__form_input" onChange={handleChangePassword} required={true} value={password}/>
+        <span id="about-input-error" className="form__item-error">
+            {passwordError}
+          </span>
         <button
             className={`login__button ${
               !formValid ? "login__button_disabled" : ""
