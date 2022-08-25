@@ -152,8 +152,108 @@ function handleLogin(email, password) {
     setNavigationOpen()
   }
 ///////////////////////////////////////////////////////  
-  
-  return (
+
+
+/////////////////Редактирование профиля//////////////////
+function handleUpdateUser(data) {
+  mainApi
+    .editUserInfo(data)
+    .then((editedData) => {
+      setCurrentUser(editedData);
+      setMessage("Данные профиля успешно обновлены");
+    })
+    .catch((err) => {
+      console.log(`Ошибка: ${err}`);
+      if (err.status === 409) {
+        setMessage("Пользователь с таким email уже существует");
+      } else {
+        setMessage("При изменении данных профиля произошла ошибка");
+      }
+    });
+}
+////////////////////////////////////////////////////////
+
+/////////////////////// Фильмы ////////////////////////// 
+const [moviesMessage, setMoviesMessage] = React.useState("");
+const [movies, setMovies] = React.useState([]);
+const [sortedMovies, setSortedMovies] = React.useState([]);
+
+function handleGetMovies(keyword) {
+  setMoviesMessage("");
+  const key = new RegExp(keyword, "gi");
+  const findedMovies = movies.filter(
+    (item) => key.test(item.nameRU) || key.test(item.nameEN)
+  );
+  if (findedMovies.length === 0) {
+    setMoviesMessage("Ничего не найдено");
+  } else {
+    setMoviesMessage("");
+    const checkedLikes = findedMovies.map((movie) => {
+      movie.isSaved = userMovies.some(
+        (userMovie) => userMovie.movieId === movie.id
+      );
+      return movie;
+    });
+    setSortedMovies(checkedLikes);
+    localStorage.setItem("sortedMovies", JSON.stringify(checkedLikes));
+  }
+}  
+////////////////////////////////////////////////////////
+
+///////////////////////////// Фильтр фильмов /////////////////////////
+const [shortMovies, setShortMovies] = React.useState(false);
+function filterShortMovies(arr) {
+  if (arr.length !== 0 || arr !== "undefind") {
+    return arr.filter((movie) =>
+      shortMovies ? movie.duration <= MAX_SHORT_MOVIE_DORATION : true
+    );
+  }
+}
+///////////////////////////////////////////////////////////////////
+ 
+///////////////////////////// CheckBox /////////////////////////
+function handleCheckBox() {
+  setShortMovies(!shortMovies);
+}
+/////////////////////////////////////////////////////////////
+
+/////////////////////////// Получение массива фильмов ///////////////////////////
+React.useEffect(() => {
+  moviesApi
+    .getInitialMovies()
+    .then((allMovies) => {
+      setMovies(allMovies);
+      localStorage.setItem("movies", JSON.stringify(allMovies));
+    })
+    .catch((err) => {
+      console.log(`Ошибка: ${err}`);
+      localStorage.removeItem("movies");
+    });
+}, [currentUser]);
+/////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////// Сохранение фильмов ///////////////////////////////////////
+
+function handleSaveMovie(movie){
+  mainApi.saveNewMovie(movie)
+    .then(newCard => {
+      setUserMovies([newCard, ...userMovies]);
+    })
+    .catch(err => console.log(err))
+};
+
+// обработчик удаления фильма из избранного
+function handleDeleteMovie(movie){
+  mainApi.deleteMovie(movie._id)
+    .then(() => {
+      const newMoviesList = userMovies.filter((m) => m._id === movie._id ? false : true);
+      setUserMovies(newMoviesList);
+    })
+    .catch(err => console.log(err))
+};
+
+///////////////////////////////////////////////////////////////////////
+return (
     <CurrentUserContext.Provider value={currentUser}>
     <Switch>
       <Route exact path='/'>
@@ -165,6 +265,14 @@ function handleLogin(email, password) {
           component={Movies} 
           onMenu={navigationClick}
           loggedIn={loggedIn}
+          onGetMovies={handleGetMovies}
+          message={moviesMessage}
+          movies={filterShortMovies(sortedMovies)}
+          onFilter={handleCheckBox}
+          isShortMovie={shortMovies}
+          savedMovies={userMovies}
+          onLikeClick={handleSaveMovie}
+          onDeleteClick={handleDeleteMovie}
           >
       </ProtectedRoute>   
 
@@ -180,14 +288,22 @@ function handleLogin(email, password) {
           onMenu={navigationClick}
           component={Profile}
           loggedIn={loggedIn}
+          onEditUser={handleUpdateUser}
+          message={message}
           >
       </ProtectedRoute >
+      onMenu={navigationClick}
 
       <ProtectedRoute 
           path="/saved-movies"
           component={SavedMovies}
-          onMenu={navigationClick}
           loggedIn={loggedIn}
+          isShortMovie={shortMovies}
+          onFilter={handleCheckBox}
+          message={moviesMessage}
+          isSavedMovies={true}
+          movies={filterShortMovies(userMovies)}
+          onDeleteClick={handleDeleteMovie}
           >
       </ProtectedRoute>
 
