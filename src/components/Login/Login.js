@@ -77,7 +77,7 @@ return(
             {emailError}
           </span>
         <p className="login__form_text">Пароль</p>
-        <input className="login__form_input" onChange={handleChangePassword} required value={password}/>
+        <input className="login__form_input" onChange={handleChangePassword} required value={password} type="password"/>
         <span id="about-input-error" className="form__item-error">
             {passwordError}
           </span>

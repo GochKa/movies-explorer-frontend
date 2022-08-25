@@ -99,7 +99,7 @@ React.useEffect(() => {
           {emailError}
         </span>
         <p className="register__form_input-title">Пароль</p>
-        <input className="register__form_input" onChange={handleChangePassword} required value={password}/>
+        <input className="register__form_input" onChange={handleChangePassword} required value={password} type="password"/>
         <span id="name-input-error" className="form__span-error">
           {passwordError}
         </span>
