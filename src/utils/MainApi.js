@@ -58,7 +58,7 @@ class MainApi {
         year: movie.year,
         description: movie.description,
         image: movie.image,
-        trailer: movie.trailer,
+        trailerLink: movie.trailerLink,
         thumbnail: movie.thumbnail,
         movieId: movie.movieId,
         nameRU: movie.nameRU,
