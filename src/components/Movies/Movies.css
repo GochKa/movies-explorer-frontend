@@ -1,12 +1,10 @@
 .movies{
   background: #202020;
-  height: max-content;
+  height: 100vh;
 }
 
 @media screen and (min-width: 1280px){
-  .movies{
-    height: 100vh;
-  }
+
   .movies__filter_desctop{
     display: flex;
     align-items: center;
