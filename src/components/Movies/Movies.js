@@ -5,8 +5,6 @@ import SearchForm from "../SearchForm/SearchForm";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import NavTab from "../NavTab/NavTab";
-// import Navigation from "../Navigation/Navigation";
-import More from "../More/More";
 import Footer from "../Footer/Footer"
 function Movies(props){
 
@@ -14,11 +12,20 @@ function Movies(props){
     <section className="movies">
       <NavTab onClick={props.onMenu}/>
       <div className="movies__filter_desctop">
-        <SearchForm />
-        <FilterCheckbox />
+        <SearchForm onGetMovies={props.onGetMovies}/>
+        <FilterCheckbox 
+         onFilter={props.onFilter}
+         isShortMovie={props.isShortMovie}
+         />
       </div>
-      <MoviesCardList />
-      <More />
+      <MoviesCardList 
+        movies={props.movies}
+        onGetMovies={props.handleGetMovies}
+        message={props.message}
+        onLike={props.onLikeClick}
+        onDelete={props.onDeleteClick}
+        savedMovies={props.savedMovies}
+      />
       <Footer />
     </section>
   )
