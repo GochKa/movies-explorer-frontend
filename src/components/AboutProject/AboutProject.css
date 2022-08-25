@@ -167,7 +167,6 @@
 
   .about-project__grid {
     margin-top: 93px;
-
     grid-template-columns: 140px 528px;
     grid-template-rows: 36px 31px;
   }
@@ -220,7 +219,6 @@
 
   .about-project__grid {
     margin-top: 110px;
-    margin-left: 70px;
     grid-template-columns: 228px 912px;
 
   }
