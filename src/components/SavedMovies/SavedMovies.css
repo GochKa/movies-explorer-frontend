@@ -1,6 +1,6 @@
 .savedmovies {
   background: #202020;
-  height: max-content;
+  height: 100vh;
 
 }
 
@@ -15,8 +15,3 @@
   margin-top: 100px;
 }
 
-@media screen and (min-width: 1280px) {
-  .savedmovies {
-    height: 100vh;
-  }
-}
