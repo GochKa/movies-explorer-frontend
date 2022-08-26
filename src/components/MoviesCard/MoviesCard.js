@@ -4,7 +4,7 @@ import "./MoviesCard.css"
 import { baseUrl } from "../../utils/config";
 function MoviesCard(props){
 
-  const isLiked = !props.isSavedMovies;
+  const isLiked = !props.isSavedMovies && props.likedMovies(props.movie);
 
   function handleLikeClick() {
     props.onAddMovie({
