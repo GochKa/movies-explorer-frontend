@@ -22,10 +22,9 @@ function Movies(props){
         movies={props.movies}
         onGetMovies={props.handleGetMovies}
         onAddMovie={props.onAddMovie}
-        isSavedMovies={false}
         message={props.message}
         savedMovies={props.savedMovies}
-
+        likedMovies={props.likedMovies}
       />
       <Footer />
     </section>
