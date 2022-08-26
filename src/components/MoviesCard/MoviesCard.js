@@ -4,13 +4,43 @@ import "./MoviesCard.css"
 import { baseUrl } from "../../utils/config";
 function MoviesCard(props){
 
+  const isLiked = !props.isSavedMovies;
+
+  function handleLikeClick() {
+    props.onAddMovie({
+      country: props.movie.country,
+      director: props.movie.director,
+      duration: props.movie.duration,
+      year: props.movie.year,
+      description: props.movie.description,
+      image: `${baseUrl}${props.movie.image ? props.movie.image.url : ""}`,
+      trailerLink: props.movie.trailerLink,
+      thumbnail: `${baseUrl}${
+        props.movie.image.formats.thumbnail
+          ? props.movie.image.formats.thumbnail.url
+          : ""
+      }`,
+      movieId: props.movie.id,
+      nameRU: props.movie.nameRU,
+      nameEN: props.movie.nameEN,
+      isSaved: props.movie.isSaved,
+    });
+  }
+
+  function handleDeleteClick() {
+   props.onDelete(props.movie);
+  }
 
   return(
     <section className="movies-card">
+        {props.isSavedMovies ? (
+          <button className="button_delete" onClick={handleDeleteClick}>Удалить</button>
+        ) : (
           <button
-            className="button_save"
-            > Сохранить
-          </button>
+            className={`button_save ${isLiked ? "button_save_active" : ""}`}
+            onClick={handleLikeClick}
+          >Сохранить</button>
+        )}
       <a  href={props.trailerLink}
         target="_blank"
         rel="noopener noreferrer nofollow">
@@ -41,3 +71,4 @@ function MoviesCard(props){
 }
 
 export default MoviesCard;
+
