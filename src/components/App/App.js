@@ -284,7 +284,30 @@ function handleMovieDeleteButton(movie) {
   handleDislikeClick(movie);
 }
 
+function handleGetSavedMovies(keyword) {
+  setMoviesMessage("");
+  const key = new RegExp(keyword, "gi");
+  const findedMovies = userMovies.filter(
+    (item) => key.test(item.nameRU) || key.test(item.nameEN)
+  );
+  if (findedMovies.length === 0) {
+    setMoviesMessage("Ничего не найдено");
+  } else {
+    setMoviesMessage("");
+    setUserMovies(findedMovies);
+  }
+}
 
+function checkSavedMovie(movie) {
+  return (movie.isSaved = userMovies.some(
+    (userMovie) => userMovie.movieId === movie.id
+  ));
+}
+
+React.useEffect(() => {
+  checkSavedMovie(sortedMovies);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [userMovies]);
 
 ///////////////////////////////////////////////////////////////////////
 return (
@@ -306,7 +329,7 @@ return (
           isShortMovie={shortMovies}
           savedMovies={userMovies}
           onAddMovie={handleLikeChange}
-
+          likedMovies={checkSavedMovie}
           >
       </ProtectedRoute>   
 
@@ -338,6 +361,7 @@ return (
           movies={filterShortMovies(userMovies)}
           onDelete={handleMovieDeleteButton}
           onMenu={navigationClick}
+          onGetMovies={handleGetSavedMovies}
           >
       </ProtectedRoute>
 
