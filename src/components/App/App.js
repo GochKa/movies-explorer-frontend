@@ -234,23 +234,57 @@ React.useEffect(() => {
 
 ///////////////////////////////// Сохранение фильмов ///////////////////////////////////////
 
-function handleSaveMovie(movie){
-  mainApi.saveNewMovie(movie)
-    .then(newCard => {
-      setUserMovies([newCard, ...userMovies]);
-    })
-    .catch(err => console.log(err))
-};
+function handleLikeChange(movie) {
+  const clickedMovie = movie.isSaved;
+  if (clickedMovie) {
+    handleDislikeClick(movie);
+  } else {
+    handleLikeClick(movie);
+  }
+}
 
-// обработчик удаления фильма из избранного
-function handleDeleteMovie(movie){
-  mainApi.deleteMovie(movie._id)
-    .then(() => {
-      const newMoviesList = userMovies.filter((m) => m._id === movie._id ? false : true);
-      setUserMovies(newMoviesList);
+function handleLikeClick(movie) {
+  const jwt = localStorage.getItem("jwt");
+  mainApi
+    .addMovie(movie, jwt)
+    .then((newMovie) => {
+      if (!newMovie) {
+        throw new Error("При добавлении фильма произошла ошибка");
+      } else {
+        localStorage.setItem(
+          "userMovies",
+          JSON.stringify((newMovie = [newMovie.movie, ...userMovies]))
+        );
+        setUserMovies(newMovie);
+      }
     })
-    .catch(err => console.log(err))
-};
+    .catch((err) => {
+      console.log(`Ошибка: ${err}`);
+    });
+}
+
+function handleDislikeClick(movie) {
+  const jwt = localStorage.getItem("jwt");
+  const movieId = movie.id || movie.movieId;
+  const selectedMovie = userMovies.find((item) => item.movieId === movieId);
+  mainApi
+    .deleteMovie(selectedMovie._id, jwt)
+    .then((deletedMovie) => {
+      if (!deletedMovie) {
+        throw new Error("При удалении фильма произошла ошибка");
+      } else {
+        const newMoviesList = userMovies.filter((c) => c.movieId !== movieId);
+        setUserMovies(newMoviesList);
+      }
+    })
+    .catch((err) => console.log(`При удалении фильма: ${err}`));
+}
+
+function handleMovieDeleteButton(movie) {
+  handleDislikeClick(movie);
+}
+
+
 
 ///////////////////////////////////////////////////////////////////////
 return (
@@ -271,8 +305,8 @@ return (
           onFilter={handleCheckBox}
           isShortMovie={shortMovies}
           savedMovies={userMovies}
-          onLikeClick={handleSaveMovie}
-          onDeleteClick={handleDeleteMovie}
+          onAddMovie={handleLikeChange}
+
           >
       </ProtectedRoute>   
 
@@ -292,7 +326,6 @@ return (
           message={message}
           >
       </ProtectedRoute >
-      onMenu={navigationClick}
 
       <ProtectedRoute 
           path="/saved-movies"
@@ -303,7 +336,8 @@ return (
           message={moviesMessage}
           isSavedMovies={true}
           movies={filterShortMovies(userMovies)}
-          onDeleteClick={handleDeleteMovie}
+          onDelete={handleMovieDeleteButton}
+          onMenu={navigationClick}
           >
       </ProtectedRoute>
 
