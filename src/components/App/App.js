@@ -76,12 +76,13 @@ function App() {
         .then(([userData, savedMovies]) => {
           localStorage.setItem("currentUser", JSON.stringify(userData));
           setCurrentUser(userData);
-
           const savedMoviesList = savedMovies.filter(
-            (item) => item.owner._id === userData._id
+            (item) => item.owner === userData._id
           );
           localStorage.setItem("userMovies", JSON.stringify(savedMoviesList));
           setUserMovies(savedMoviesList);
+          console.log(savedMoviesList)
+
         })
         .catch((err) => {
           console.log(err);
