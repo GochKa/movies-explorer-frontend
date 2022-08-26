@@ -21,10 +21,11 @@ function Movies(props){
       <MoviesCardList 
         movies={props.movies}
         onGetMovies={props.handleGetMovies}
+        onAddMovie={props.onAddMovie}
+        isSavedMovies={false}
         message={props.message}
-        onLike={props.onLikeClick}
-        onDelete={props.onDeleteClick}
         savedMovies={props.savedMovies}
+
       />
       <Footer />
     </section>
