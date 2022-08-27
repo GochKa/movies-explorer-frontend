@@ -7,6 +7,7 @@ function MoviesCard(props){
   const isLiked = !props.isSavedMovies && props.likedMovies(props.movie);
 
   function handleLikeClick() {
+
     props.onAddMovie({
       country: props.movie.country,
       director: props.movie.director,
@@ -20,7 +21,7 @@ function MoviesCard(props){
           ? props.movie.image.formats.thumbnail.url
           : ""
       }`,
-      movieId: props.movie.id,
+      movieId: props.id,
       nameRU: props.movie.nameRU,
       nameEN: props.movie.nameEN,
       isSaved: props.movie.isSaved,
