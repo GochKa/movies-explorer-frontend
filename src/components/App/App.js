@@ -81,10 +81,10 @@ function App() {
           );
           localStorage.setItem("userMovies", JSON.stringify(savedMoviesList));
           setUserMovies(savedMoviesList);
-          console.log(savedMoviesList)
 
         })
         .catch((err) => {
+          
           console.log(err);
         });
     }
@@ -191,7 +191,7 @@ function handleGetMovies(keyword) {
     setMoviesMessage("");
     const checkedLikes = findedMovies.map((movie) => {
       movie.isSaved = userMovies.some(
-        (userMovie) => userMovie.movieId === movie.id
+        (userMovie) => userMovie.movieId === movie.movieId
       );
       return movie;
     });
@@ -254,7 +254,7 @@ function handleLikeClick(movie) {
       } else {
         localStorage.setItem(
           "userMovies",
-          JSON.stringify((newMovie = [newMovie.movie, ...userMovies]))
+          JSON.stringify((newMovie = [newMovie, ...userMovies]))
         );
         setUserMovies(newMovie);
       }
@@ -266,7 +266,7 @@ function handleLikeClick(movie) {
 
 function handleDislikeClick(movie) {
   const jwt = localStorage.getItem("jwt");
-  const movieId = movie.id || movie.movieId;
+  const movieId = movie.movieId;
   const selectedMovie = userMovies.find((item) => item.movieId === movieId);
   mainApi
     .deleteMovie(selectedMovie._id, jwt)
@@ -299,9 +299,9 @@ function handleGetSavedMovies(keyword) {
   }
 }
 
-function checkSavedMovie(movie) {
-  return (movie.isSaved = userMovies.some(
-    (userMovie) => userMovie.movieId === movie.id
+function checkSavedMovie(id) {
+  return (userMovies.find(    
+    (movie) => movie.movieId === id
   ));
 }
 
