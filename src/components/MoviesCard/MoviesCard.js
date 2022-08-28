@@ -7,7 +7,6 @@ function MoviesCard(props){
   const isLiked = !props.isSavedMovies && props.likedMovies(props.movie);
 
   function handleLikeClick() {
-
     props.onAddMovie({
       country: props.movie.country,
       director: props.movie.director,
@@ -40,7 +39,7 @@ function MoviesCard(props){
           <button
             className={`button_save ${isLiked ? "button_save_active" : ""}`}
             onClick={handleLikeClick}
-          >Сохранить</button>
+          >{!isLiked ? "Сохранить" : ""}</button>
         )}
       <a  href={props.trailerLink}
         target="_blank"
