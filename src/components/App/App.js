@@ -299,9 +299,9 @@ function handleGetSavedMovies(keyword) {
   }
 }
 
-function checkSavedMovie(id) {
-  return (userMovies.find(    
-    (movie) => movie.movieId === id
+function checkSavedMovie(movie) {
+  return (movie.isSaved = userMovies.some(
+    (userMovie) => userMovie.movieId === movie.id
   ));
 }
 
