@@ -57,6 +57,7 @@
   display: flex;
   margin: 0;
   padding: 0;
+  margin-top: 25px;
 }
 
 .card__title {
@@ -67,7 +68,7 @@
   line-height: 15px;
   color: #FFFFFF;
   width: 240px;
-  margin-right: 8px;
+  margin-right: 60px;
 }
 
 .card__duration {

@@ -21,7 +21,7 @@ function MoviesCard(props){
           ? props.movie.image.formats.thumbnail.url
           : ""
       }`,
-      movieId: props.id,
+      movieId: props.movie.id,
       nameRU: props.movie.nameRU,
       nameEN: props.movie.nameEN,
       isSaved: props.movie.isSaved,
