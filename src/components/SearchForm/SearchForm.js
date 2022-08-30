@@ -31,6 +31,7 @@ function SearchForm(props){
   }, [findedMovie, error]);
 
   return(
+    <section>
     <form className="searchform" onSubmit={handleSubmit}>
       <input className="searchform__input" 
           placeholder="Фильм" 
@@ -41,14 +42,18 @@ function SearchForm(props){
           value={findedMovie}
           onChange={handleSearchMovie}
           />
-      <span id="searchform-input-err" className="form-item-err"></span>
       <button type="submit" className="searchform__submit"             
             onClick={handleSubmit}
             disabled={!formValid}>
         <img src={sbmbutton} alt="кнопка формы"/>
       </button>
     </form>
+    {!findedMovie ?
+    (<span id="searchform-input-err" className="searchform-item-err">{error}</span>) : ("")}
+    
+    </section>
   )
+
 }
 
 export default SearchForm;

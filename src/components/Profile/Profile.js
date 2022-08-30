@@ -112,8 +112,9 @@ React.useEffect(() => {
               value={name}
               onChange={handleNameChange}
               disabled={!isInputDisabled}/>
-                <span id="name-input-err" className="form-item-err">{nameError}</span>
             </div>
+            <span id="name-input-err" className="form-item-err">{nameError}</span>
+
             <div className="profile__form_inputs-container">
               <label className="form__field-profile">
                 Почта
@@ -123,10 +124,13 @@ React.useEffect(() => {
               value={email}
               onChange={handleEmailChange}
               disabled={!isInputDisabled}/>
-                <span id="name-input-err" className="form-item-err">{emailError}</span>
             </div>
+            <span id="name-input-err" className="form-item-err">{emailError}</span>
           </fieldset>
         </div>
+        {props.message ? (
+          <p className="profile__message">{props.message}</p>
+        ) : ("")}
         <button
                   className={`profile__edit-button ${
 							!formValid || name < 2 || email < 2 ? "profile__edit-button_disabled" : ""
@@ -137,7 +141,7 @@ React.useEffect(() => {
                 >
                   Редактировать
                 </button>
-        <Link to="/signin" className="profile__logout-button">Выйти из аккаунта</Link>
+        <Link to="/signin" className="profile__logout-button" onClick={props.onSignOut}>Выйти из аккаунта</Link>
       </form>
     </section>
   )

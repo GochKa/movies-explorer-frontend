@@ -4,9 +4,10 @@ import "./MoviesCard.css"
 import { baseUrl } from "../../utils/config";
 function MoviesCard(props){
 
-  const isLiked = !props.isSavedMovies && props.likedMovies(props.movie);
+  const[isLiked, setIsLiked] =React.useState(false)
 
   function handleLikeClick() {
+    
     props.onAddMovie({
       country: props.movie.country,
       director: props.movie.director,
@@ -25,11 +26,13 @@ function MoviesCard(props){
       nameEN: props.movie.nameEN,
       isSaved: props.movie.isSaved,
     });
+    setIsLiked(true)
   }
 
   function handleDeleteClick() {
    props.onDelete(props.movie);
   }
+
 
   return(
     <section className="movies-card">

@@ -12,6 +12,7 @@ import NotFound from "../NotFound/NotFound";
 import Navigation from "../Navigation/Navigation";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute"
 import CurrentUserContext from "../../context/CurrentUserContext"
+import Preloader from "../Preloader/Preloader"
 
 import mainApi from "../../utils/MainApi"
 import * as auth from "../../utils/Auth"
@@ -160,6 +161,7 @@ function handleUpdateUser(data) {
   mainApi
     .editUserInfo(data)
     .then((editedData) => {
+
       setCurrentUser(editedData);
       setMessage("Данные профиля успешно обновлены");
     })
@@ -310,12 +312,27 @@ React.useEffect(() => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [userMovies]);
 
+const handleSignOut = () => {
+  localStorage.removeItem("jwt");
+  localStorage.removeItem("userMovies");
+  localStorage.removeItem("movies");
+  localStorage.removeItem("sortedMovies");
+  localStorage.removeItem("currentUser");
+  setUserMovies([]);
+  setSortedMovies([]);
+  setCurrentUser({});
+  setLoggedIn(false);
+  setMessage("");
+  history.push("/");
+};
+
+
 ///////////////////////////////////////////////////////////////////////
 return (
     <CurrentUserContext.Provider value={currentUser}>
     <Switch>
       <Route exact path='/'>
-        <Main/>
+        <Main loggedIn={loggedIn} onMenu={navigationClick}/>
       </Route>
 
       <ProtectedRoute  
@@ -331,6 +348,7 @@ return (
           savedMovies={userMovies}
           onAddMovie={handleLikeChange}
           likedMovies={checkSavedMovie}
+          onSignOut={handleSignOut}
           >
       </ProtectedRoute>   
 
@@ -348,6 +366,7 @@ return (
           loggedIn={loggedIn}
           onEditUser={handleUpdateUser}
           message={message}
+          onSignOut={handleSignOut}
           >
       </ProtectedRoute >
 
@@ -363,12 +382,15 @@ return (
           onDelete={handleMovieDeleteButton}
           onMenu={navigationClick}
           onGetMovies={handleGetSavedMovies}
+          onSignOut={handleSignOut}
           >
       </ProtectedRoute>
 
       <Route exact path="*">
         <NotFound/>
       </Route>
+      <Preloader isOpen={loader}/>
+
     </Switch>
     <Navigation isOpen={isNavigationOpen} onClose={closeNavigation}/>
     </CurrentUserContext.Provider>
