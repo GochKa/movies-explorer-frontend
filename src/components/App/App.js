@@ -389,7 +389,6 @@ return (
       <Route exact path="*">
         <NotFound/>
       </Route>
-      <Preloader isOpen={loader}/>
 
     </Switch>
     <Navigation isOpen={isNavigationOpen} onClose={closeNavigation}/>
