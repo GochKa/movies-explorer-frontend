@@ -341,7 +341,7 @@ return (
     <CurrentUserContext.Provider value={currentUser}>
     <Switch>
       <Route exact path='/'>
-        <Main loggedIn={loggedIn} onMenu={navigationClick}/>
+        <Main loggedIn={loggedIn} onMenu={navigationClick} onClose={closeNavigation} isOpen={isNavigationOpen}/>
       </Route>
 
       <ProtectedRoute  
