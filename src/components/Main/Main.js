@@ -10,7 +10,6 @@ import HeaderAfterAuth from "../HeaderAfterAuth/HeaderAfterAuth";
 import Navigation from "../Navigation/Navigation";
 
 function Main(props){
- console.log(props)
   return(
     <>
     {props.loggedIn ? (
