@@ -19,7 +19,6 @@ function SearchForm(props){
     e.preventDefault();
     setError("");
     props.onGetMovies(findedMovie);
-    setFindedMovie("");
   }
 
   React.useEffect(() => {
@@ -29,6 +28,7 @@ function SearchForm(props){
       setFormValid(false);
     }
   }, [findedMovie, error]);
+
 
   return(
     <section>

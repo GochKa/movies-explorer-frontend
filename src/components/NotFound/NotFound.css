@@ -43,6 +43,13 @@
   color: #4285F4;
   margin: 0;
   margin-bottom: 30px;
+  margin-left: 142px;
+  width: 36px;
+  height: 15px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -61,5 +68,12 @@
   .not-found__back {
     font-size: 14px;
     line-height: 17px;
+    margin-left: 363px;
+  }
+}
+
+@media screen and (min-width: 1280px){
+  .not-found__back{
+    margin-left: 619px;
   }
 }

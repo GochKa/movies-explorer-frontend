@@ -35,8 +35,6 @@ function MoviesCardList(props){
                 />
               ))
           )}
-
-
     </section>
     {props.movies.length >= MIN_NUMBER_OF_CARDS &&
       props.movies.length > counter &&

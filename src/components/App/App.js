@@ -53,6 +53,7 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [userMovies, setUserMovies] = React.useState([]);
   const [currentUser, setCurrentUser] = React.useState({});
+  const [loader, setLoader] = React.useState(false);
 
   function getCurrentUser() {
     const jwt = localStorage.getItem("jwt");
@@ -89,7 +90,7 @@ function App() {
           console.log(err);
         });
     }
-  }, [loggedIn]);
+  }, []);
 ////////////////////////////////////////////////////////////////////////
 
 ///////////////////////Регистрация и логин//////////////////////////////
@@ -161,12 +162,15 @@ function handleUpdateUser(data) {
   mainApi
     .editUserInfo(data)
     .then((editedData) => {
-
+      setLoader(true)
       setCurrentUser(editedData);
       setMessage("Данные профиля успешно обновлены");
+      setLoader(false)
+
     })
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
+       setLoader(false)
       if (err.status === 409) {
         setMessage("Пользователь с таким email уже существует");
       } else {
@@ -188,13 +192,18 @@ function handleGetMovies(keyword) {
     (item) => key.test(item.nameRU) || key.test(item.nameEN)
   );
   if (findedMovies.length === 0) {
+    setLoader(true)
     setMoviesMessage("Ничего не найдено");
+    setLoader(false)
+
   } else {
+    setLoader(true)
     setMoviesMessage("");
     const checkedLikes = findedMovies.map((movie) => {
       movie.isSaved = userMovies.some(
         (userMovie) => userMovie.movieId === movie.movieId
       );
+      setLoader(false)
       return movie;
     });
     setSortedMovies(checkedLikes);
@@ -232,7 +241,7 @@ React.useEffect(() => {
       console.log(`Ошибка: ${err}`);
       localStorage.removeItem("movies");
     });
-}, [currentUser]);
+}, []);
 /////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////// Сохранение фильмов ///////////////////////////////////////
@@ -391,6 +400,7 @@ return (
       </Route>
 
     </Switch>
+    <Preloader isOpen={loader}/>
     <Navigation isOpen={isNavigationOpen} onClose={closeNavigation}/>
     </CurrentUserContext.Provider>
   );
