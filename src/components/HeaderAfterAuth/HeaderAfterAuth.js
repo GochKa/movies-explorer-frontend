@@ -1,10 +1,12 @@
 import React from 'react';
 import "./HeaderAfterAuth.css";
-import logo from "../../images/logo.svg";
+import NavTab from "../NavTab/NavTab"
 
-function HeaderAfterAuth(){
+function HeaderAfterAuth(props){
   return(
-    
+      <section className='header__auth'>
+        <NavTab onClick={props.openMenu}/>
+      </section>
     )
 }
 
