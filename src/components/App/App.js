@@ -261,6 +261,7 @@ function handleLikeClick(movie) {
     .addMovie(movie, jwt)
     .then((newMovie) => {
       if (!newMovie) {
+
         throw new Error("При добавлении фильма произошла ошибка");
       } else {
         localStorage.setItem(
