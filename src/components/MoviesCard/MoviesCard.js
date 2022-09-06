@@ -2,9 +2,10 @@ import React from "react";
 import "./MoviesCard.css"
 
 import { baseUrl } from "../../utils/config";
+
 function MoviesCard(props){
 
-  const[isLiked, setIsLiked] =React.useState(false)
+  const isLiked = !props.isSavedMovies && props.likedMovies(props.movie);
 
   function handleLikeClick() {
     
@@ -26,7 +27,6 @@ function MoviesCard(props){
       nameEN: props.movie.nameEN,
       isSaved: props.movie.isSaved,
     });
-     setIsLiked(true)
   }
 
 
@@ -43,6 +43,7 @@ function MoviesCard(props){
           <button
             className={`button_save ${isLiked ? "button_save_active" : ""}`}
             onClick={handleLikeClick}
+            disabled={isLiked ? (true) : (false)}
           >{!isLiked ? "Сохранить" : ""}</button>
         )}
       <a  href={props.trailerLink}
