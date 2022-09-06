@@ -39,8 +39,8 @@ function SearchForm(props){
           name="search"
           minLength="2"
           maxLength="40"
-          value={findedMovie}
           onChange={handleSearchMovie}
+          value={findedMovie}
           />
       <button type="submit" className="searchform__submit"             
             onClick={handleSubmit}
