@@ -26,8 +26,9 @@ function MoviesCard(props){
       nameEN: props.movie.nameEN,
       isSaved: props.movie.isSaved,
     });
-    setIsLiked(true)
+     setIsLiked(true)
   }
+
 
   function handleDeleteClick() {
    props.onDelete(props.movie);
