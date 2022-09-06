@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./MoviesCardList.css"
 import More from "../More/More";
 import { 
@@ -10,8 +10,11 @@ import {
   AMOUNT_1280,
   AMOUNT_768,
   AMOUNT_320 } from "../../utils/config";
-import MoviesCard from "../MoviesCard/MoviesCard";
 
+import Preloader from "../Preloader/Preloader";  
+
+
+const MoviesCard = React.lazy(() => import("../MoviesCard/MoviesCard"))
 function MoviesCardList(props){
   const [counter, setCounter] = React.useState();
   const [increment, setIncrement] = React.useState();
@@ -41,6 +44,7 @@ React.useEffect(() =>{
   return(
     <>
     <section className="movies-card-list">
+    <Suspense fallback={<Preloader />}>
         {props.message ? (
             <p className="movies-message">{props.message}</p>
           ) : (
@@ -62,6 +66,7 @@ React.useEffect(() =>{
                 />
               ))
           )}
+          </Suspense>
     </section>
     {props.movies.length >= MIN_NUMBER_OF_CARDS &&
       props.movies.length > counter &&
