@@ -1,15 +1,42 @@
 import React from "react";
 import "./MoviesCardList.css"
 import More from "../More/More";
-import { MAX_NUMBER_OF_CARDS, MIN_NUMBER_OF_CARDS } from "../../utils/config";
+import { 
+  MAX_NUMBER_OF_CARDS, 
+  MIN_NUMBER_OF_CARDS,
+  MAXIMUM_MOVIES_1280,
+  MAXIMUM_MOVIES_768,
+  MAXIMUM_MOVIES_320,
+  AMOUNT_1280,
+  AMOUNT_768,
+  AMOUNT_320 } from "../../utils/config";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
 function MoviesCardList(props){
-  const [counter, setCounter] = React.useState(3);
-
+  const [counter, setCounter] = React.useState();
+  const [increment, setIncrement] = React.useState();
   function showMoreMovies() {
-    setCounter(counter + 3);
+    setCounter(counter + increment);
   }
+
+function countOfCard(){
+  const width = window.innerWidth;
+
+  if (width >= 1280) {
+    setCounter(MAXIMUM_MOVIES_1280)
+    setIncrement(AMOUNT_1280)
+  } else if (width <=1280 && width >= 768) {
+    setCounter(MAXIMUM_MOVIES_768)
+    setIncrement(AMOUNT_768)
+  } else if (width <= 768 && width >= 320) {
+    setCounter(MAXIMUM_MOVIES_320)
+    setIncrement(AMOUNT_320)
+  }
+}
+
+React.useEffect(() =>{
+  countOfCard()
+}, [])
 
   return(
     <>
