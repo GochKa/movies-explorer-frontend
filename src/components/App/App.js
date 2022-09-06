@@ -83,10 +83,8 @@ function App() {
           );
           localStorage.setItem("userMovies", JSON.stringify(savedMoviesList));
           setUserMovies(savedMoviesList);
-
         })
         .catch((err) => {
-          
           console.log(err);
         });
     }
@@ -166,7 +164,6 @@ function handleUpdateUser(data) {
       setCurrentUser(editedData);
       setMessage("Данные профиля успешно обновлены");
       setLoader(false)
-
     })
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
@@ -203,6 +200,7 @@ function handleGetMovies(keyword) {
       movie.isSaved = userMovies.some(
         (userMovie) => userMovie.movieId === movie.movieId
       );
+      
       setLoader(false)
       return movie;
     });
@@ -234,8 +232,8 @@ React.useEffect(() => {
   moviesApi
     .getInitialMovies()
     .then((allMovies) => {
-      setMovies(allMovies);
       localStorage.setItem("movies", JSON.stringify(allMovies));
+      setMovies(allMovies);
     })
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
@@ -248,6 +246,7 @@ React.useEffect(() => {
 
 function handleLikeChange(movie) {
   const clickedMovie = movie.isSaved;
+
   if (clickedMovie) {
     handleDislikeClick(movie);
   } else {
@@ -340,6 +339,7 @@ const handleSignOut = () => {
 ///////////////////////////////////////////////////////////////////////
 return (
     <CurrentUserContext.Provider value={currentUser}>
+      <div className="page-site">
     <Switch>
       <Route exact path='/'>
         <Main loggedIn={loggedIn} onMenu={navigationClick} onClose={closeNavigation} isOpen={isNavigationOpen}/>
@@ -403,6 +403,7 @@ return (
     </Switch>
     <Preloader isOpen={loader}/>
     <Navigation isOpen={isNavigationOpen} onClose={closeNavigation}/>
+    </div>
     </CurrentUserContext.Provider>
   );
 }
