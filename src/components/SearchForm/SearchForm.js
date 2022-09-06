@@ -9,7 +9,7 @@ function SearchForm(props){
   function handleSearchMovie(e) {
     setFindedMovie(e.target.value);
     if (e.target.value.length === 0) {
-      setError("Нужно ввести ключевое слово");
+      setError("Поле не должно быть пустым");
     } else {
       setError("");
     }
@@ -17,8 +17,13 @@ function SearchForm(props){
 
   function handleSubmit(e) {
     e.preventDefault();
-    setError("");
-    props.onGetMovies(findedMovie);
+    if (formValid) {
+      setError("");
+      props.onGetMovies(findedMovie);
+    } else {
+      setError("Нужно ввести ключевое слово")
+    }
+
   }
 
   React.useEffect(() => {
@@ -44,7 +49,7 @@ function SearchForm(props){
           />
       <button type="submit" className="searchform__submit"             
             onClick={handleSubmit}
-            disabled={!formValid}>
+            >
         <img src={sbmbutton} alt="кнопка формы"/>
       </button>
     </form>
