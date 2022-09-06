@@ -196,11 +196,11 @@ function handleGetMovies(keyword) {
   } else {
     setLoader(true)
     setMoviesMessage("");
+    localStorage.setItem("findedMovies", findedMovies)
     const checkedLikes = findedMovies.map((movie) => {
       movie.isSaved = userMovies.some(
         (userMovie) => userMovie.movieId === movie.movieId
       );
-      
       setLoader(false)
       return movie;
     });
