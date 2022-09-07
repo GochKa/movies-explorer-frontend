@@ -214,6 +214,7 @@ function handleGetMovies(keyword) {
     setSortedMovies(checkedLikes);
     localStorage.setItem("sortedMovies", JSON.stringify(checkedLikes));
     setFilmsOnPage(JSON.parse(localStorage.getItem("findedMovies")))
+    console.log(filmsOnPage)
   }
 
 }
