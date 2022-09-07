@@ -23,6 +23,8 @@ function App() {
   const history = useHistory();
   let location = useLocation();
 
+
+  
   React.useEffect(() => {
     const path = location.pathname;
     const jwt = localStorage.getItem("jwt");
@@ -211,20 +213,36 @@ function handleGetMovies(keyword) {
 ////////////////////////////////////////////////////////
 
 ///////////////////////////// Фильтр фильмов /////////////////////////
-const [shortMovies, setShortMovies] = React.useState(false);
+
+const [isShortfilmCheckboxOn, setIsShortfilmCheckboxOn] = React.useState(localStorage.getItem('isShortfilmCheckboxOn'))
+
 function filterShortMovies(arr) {
   if (arr.length !== 0 || arr !== "undefind") {
     return arr.filter((movie) =>
-      shortMovies ? movie.duration <= MAX_SHORT_MOVIE_DORATION : true
-    );
+    isShortfilmCheckboxOn ? movie.duration <= MAX_SHORT_MOVIE_DORATION : true
+    ); 
   }
 }
 ///////////////////////////////////////////////////////////////////
  
 ///////////////////////////// CheckBox /////////////////////////
+
 function handleCheckBox() {
-  setShortMovies(!shortMovies);
+  setIsShortfilmCheckboxOn(!isShortfilmCheckboxOn);
+  localStorage.setItem('isShortfilmCheckboxOn', !isShortfilmCheckboxOn);
 }
+
+React.useEffect(() =>{
+  localStorage.setItem('isShortfilmCheckboxOn', isShortfilmCheckboxOn)
+})
+
+React.useEffect(() => {
+  if (localStorage.getItem(`isShortfilmCheckboxOn`) === 'true') {
+      setIsShortfilmCheckboxOn(true);
+  } else {
+      setIsShortfilmCheckboxOn(false);
+  }
+}, [currentUser]);
 /////////////////////////////////////////////////////////////
 
 /////////////////////////// Получение массива фильмов ///////////////////////////
@@ -327,6 +345,7 @@ const handleSignOut = () => {
   localStorage.removeItem("movies");
   localStorage.removeItem("sortedMovies");
   localStorage.removeItem("currentUser");
+  setIsShortfilmCheckboxOn(false);
   setUserMovies([]);
   setSortedMovies([]);
   setCurrentUser({});
@@ -354,11 +373,12 @@ return (
           message={moviesMessage}
           movies={filterShortMovies(sortedMovies)}
           onFilter={handleCheckBox}
-          isShortMovie={shortMovies}
+
           savedMovies={userMovies}
           onAddMovie={handleLikeChange}
           likedMovies={checkSavedMovie}
           onSignOut={handleSignOut}
+          isShortfilmCheckboxOn={isShortfilmCheckboxOn}
           >
       </ProtectedRoute>   
 
@@ -384,7 +404,6 @@ return (
           path="/saved-movies"
           component={SavedMovies}
           loggedIn={loggedIn}
-          isShortMovie={shortMovies}
           onFilter={handleCheckBox}
           message={moviesMessage}
           isSavedMovies={true}
@@ -393,6 +412,7 @@ return (
           onMenu={navigationClick}
           onGetMovies={handleGetSavedMovies}
           onSignOut={handleSignOut}
+          isShortfilmCheckboxOn={isShortfilmCheckboxOn}
           >
       </ProtectedRoute>
 

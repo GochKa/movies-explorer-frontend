@@ -15,7 +15,8 @@ function SavedMovies(props){
         <SearchForm onGetMovies={props.onGetMovies}/>
         <FilterCheckbox         
           onFilter={props.onFilter}
-          isShortMovie={props.isShortMovie}/>
+          isShortMovie={props.isShortMovie}
+          isShortfilmCheckboxOn={props.isShortfilmCheckboxOn}/>
       </div>
       {props.movies.length > 0 ? (
         <MoviesCardList

@@ -16,6 +16,7 @@ function Movies(props){
         <FilterCheckbox 
          onFilter={props.onFilter}
          isShortMovie={props.isShortMovie}
+         isShortfilmCheckboxOn={props.isShortfilmCheckboxOn}
          />
       </div>
       <MoviesCardList 
