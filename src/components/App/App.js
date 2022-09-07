@@ -194,11 +194,11 @@ function handleGetMovies(keyword) {
     setLoader(true)
     setMoviesMessage("Ничего не найдено");
     setLoader(false)
-
   } else {
     setLoader(true)
     setMoviesMessage("");
     localStorage.setItem("findedMovies", findedMovies)
+
     const checkedLikes = findedMovies.map((movie) => {
       movie.isSaved = userMovies.some(
         (userMovie) => userMovie.movieId === movie.movieId
@@ -373,7 +373,7 @@ return (
           message={moviesMessage}
           movies={filterShortMovies(sortedMovies)}
           onFilter={handleCheckBox}
-
+   
           savedMovies={userMovies}
           onAddMovie={handleLikeChange}
           likedMovies={checkSavedMovie}

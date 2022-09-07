@@ -9,7 +9,7 @@ function SearchForm(props){
   function handleSearchMovie(e) {
     setFindedMovie(e.target.value);
     if (e.target.value.length === 0) {
-      setError("Поле не должно быть пустым");
+      setError("Нужно ввести ключевое слово");
     } else {
       setError("");
     }
