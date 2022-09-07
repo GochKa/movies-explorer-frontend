@@ -185,7 +185,7 @@ const [movies, setMovies] = React.useState([]);
 const [sortedMovies, setSortedMovies] = React.useState([]);
 
 // Стейт для отображения на странице
-const [filmsOnPage, setFilmsOnPage] = React.useState(JSON.parse(localStorage.getItem("findedMovies")))
+const [filmsOnPage, setFilmsOnPage] = React.useState([])
 
 function handleGetMovies(keyword) {
   setMoviesMessage("");
@@ -203,7 +203,6 @@ function handleGetMovies(keyword) {
     setMoviesMessage("");
 
     localStorage.setItem("findedMovies", JSON.stringify(findedMovies))
-    setFilmsOnPage()
 
     const checkedLikes = findedMovies.map((movie) => {
       movie.isSaved = userMovies.some(
@@ -214,6 +213,7 @@ function handleGetMovies(keyword) {
     });
     setSortedMovies(checkedLikes);
     localStorage.setItem("sortedMovies", JSON.stringify(checkedLikes));
+    setFilmsOnPage(JSON.parse(localStorage.getItem("findedMovies")))
   }
 
 }
