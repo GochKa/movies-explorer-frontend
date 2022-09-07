@@ -185,7 +185,7 @@ const [movies, setMovies] = React.useState([]);
 const [sortedMovies, setSortedMovies] = React.useState([]);
 
 // Стейт для отображения на странице
-const [filmsOnPage, setFilmsOnPage] = React.useState([])
+const [filmsOnPage, setFilmsOnPage] = React.useState(!localStorage.getItem("findedMovies") ? []: JSON.parse(localStorage.getItem("findedMovies")))
 
 function handleGetMovies(keyword) {
   setMoviesMessage("");
@@ -193,6 +193,7 @@ function handleGetMovies(keyword) {
   const findedMovies = movies.filter(
     (item) => key.test(item.nameRU) || key.test(item.nameEN)
   );
+
   if (findedMovies.length === 0) {
     setLoader(true)
     setMoviesMessage("Ничего не найдено");
@@ -202,11 +203,8 @@ function handleGetMovies(keyword) {
     setMoviesMessage("");
 
     localStorage.setItem("findedMovies", JSON.stringify(findedMovies))
-
     //console.log(typeof findedMovies)
-
     setFilmsOnPage(JSON.parse(localStorage.getItem("findedMovies")))
-
     //console.log(typeof filmsOnPage)
     const checkedLikes = findedMovies.map((movie) => {
       movie.isSaved = userMovies.some(
@@ -357,6 +355,7 @@ const handleSignOut = () => {
   localStorage.removeItem("movies");
   localStorage.removeItem("sortedMovies");
   localStorage.removeItem("currentUser");
+  setFilmsOnPage([])
   setIsShortfilmCheckboxOn(false);
   setUserMovies([]);
   setSortedMovies([]);
