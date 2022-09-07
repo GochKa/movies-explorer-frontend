@@ -193,7 +193,6 @@ function handleGetMovies(keyword) {
   const findedMovies = movies.filter(
     (item) => key.test(item.nameRU) || key.test(item.nameEN)
   );
-
   if (findedMovies.length === 0) {
     setLoader(true)
     setMoviesMessage("Ничего не найдено");
@@ -204,6 +203,11 @@ function handleGetMovies(keyword) {
 
     localStorage.setItem("findedMovies", JSON.stringify(findedMovies))
 
+    //console.log(typeof findedMovies)
+
+    setFilmsOnPage(JSON.parse(localStorage.getItem("findedMovies")))
+
+    //console.log(typeof filmsOnPage)
     const checkedLikes = findedMovies.map((movie) => {
       movie.isSaved = userMovies.some(
         (userMovie) => userMovie.movieId === movie.movieId
@@ -213,8 +217,7 @@ function handleGetMovies(keyword) {
     });
     setSortedMovies(checkedLikes);
     localStorage.setItem("sortedMovies", JSON.stringify(checkedLikes));
-    setFilmsOnPage(JSON.parse(localStorage.getItem("findedMovies")))
-    console.log(filmsOnPage)
+
   }
 
 }

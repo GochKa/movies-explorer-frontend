@@ -24,24 +24,21 @@ function MoviesCardList(props){
 
 
 
-function countOfCard(){
-  const width = window.innerWidth;
+  React.useEffect(() =>{
+    if (window.innerWidth >= 1280) {
+      setCounter(MAXIMUM_MOVIES_1280)
+      setIncrement(AMOUNT_1280)
+    } else if (window.innerWidth <=1280 && window.innerWidth >= 768) {
+      setCounter(MAXIMUM_MOVIES_768)
+      setIncrement(AMOUNT_768)
+    } else if (window.innerWidth <= 768 && window.innerWidth >= 320) {
+      setCounter(MAXIMUM_MOVIES_320)
+      setIncrement(AMOUNT_320)
+    }
+  }, [window.innerWidth])
 
-  if (width >= 1280) {
-    setCounter(MAXIMUM_MOVIES_1280)
-    setIncrement(AMOUNT_1280)
-  } else if (width <=1280 && width >= 768) {
-    setCounter(MAXIMUM_MOVIES_768)
-    setIncrement(AMOUNT_768)
-  } else if (width <= 768 && width >= 320) {
-    setCounter(MAXIMUM_MOVIES_320)
-    setIncrement(AMOUNT_320)
-  }
-}
 
-React.useEffect(() =>{
-  countOfCard()
-}, [])
+
 
 
   return(
