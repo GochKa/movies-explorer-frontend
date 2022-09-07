@@ -183,6 +183,10 @@ function handleUpdateUser(data) {
 const [moviesMessage, setMoviesMessage] = React.useState("");
 const [movies, setMovies] = React.useState([]);
 const [sortedMovies, setSortedMovies] = React.useState([]);
+
+// Стейт для отображения на странице
+const [filmsOnPage, setFilmsOnPage] = React.useState([])
+
 function handleGetMovies(keyword) {
   setMoviesMessage("");
   const key = new RegExp(keyword, "gi");
@@ -199,6 +203,8 @@ function handleGetMovies(keyword) {
     setMoviesMessage("");
 
     localStorage.setItem("findedMovies", JSON.stringify(findedMovies))
+    setFilmsOnPage(JSON.parse(localStorage.getItem("findedMovies")))
+
     const checkedLikes = findedMovies.map((movie) => {
       movie.isSaved = userMovies.some(
         (userMovie) => userMovie.movieId === movie.movieId
@@ -373,7 +379,7 @@ return (
           loggedIn={loggedIn}
           onGetMovies={handleGetMovies}
           message={moviesMessage}
-          movies={filterShortMovies(sortedMovies)}
+          movies={filterShortMovies(filmsOnPage)}
           onFilter={handleCheckBox}
           savedMovies={userMovies}
           onAddMovie={handleLikeChange}

@@ -24,7 +24,6 @@ function MoviesCardList(props){
 
 
 
-
 function countOfCard(){
   const width = window.innerWidth;
 
