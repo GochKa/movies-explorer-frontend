@@ -22,6 +22,9 @@ function MoviesCardList(props){
     setCounter(counter + increment);
   }
 
+
+
+
 function countOfCard(){
   const width = window.innerWidth;
 
@@ -40,6 +43,7 @@ function countOfCard(){
 React.useEffect(() =>{
   countOfCard()
 }, [])
+
 
   return(
     <>

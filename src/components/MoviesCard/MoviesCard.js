@@ -34,6 +34,7 @@ function MoviesCard(props){
    props.onDelete(props.movie);
   }
 
+  
 
   return(
     <section className="movies-card">

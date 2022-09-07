@@ -183,13 +183,13 @@ function handleUpdateUser(data) {
 const [moviesMessage, setMoviesMessage] = React.useState("");
 const [movies, setMovies] = React.useState([]);
 const [sortedMovies, setSortedMovies] = React.useState([]);
-
 function handleGetMovies(keyword) {
   setMoviesMessage("");
   const key = new RegExp(keyword, "gi");
   const findedMovies = movies.filter(
     (item) => key.test(item.nameRU) || key.test(item.nameEN)
   );
+
   if (findedMovies.length === 0) {
     setLoader(true)
     setMoviesMessage("Ничего не найдено");
@@ -197,8 +197,8 @@ function handleGetMovies(keyword) {
   } else {
     setLoader(true)
     setMoviesMessage("");
-    localStorage.setItem("findedMovies", findedMovies)
 
+    localStorage.setItem("findedMovies", JSON.stringify(findedMovies))
     const checkedLikes = findedMovies.map((movie) => {
       movie.isSaved = userMovies.some(
         (userMovie) => userMovie.movieId === movie.movieId
@@ -209,7 +209,9 @@ function handleGetMovies(keyword) {
     setSortedMovies(checkedLikes);
     localStorage.setItem("sortedMovies", JSON.stringify(checkedLikes));
   }
-}  
+
+}
+
 ////////////////////////////////////////////////////////
 
 ///////////////////////////// Фильтр фильмов /////////////////////////
@@ -373,7 +375,6 @@ return (
           message={moviesMessage}
           movies={filterShortMovies(sortedMovies)}
           onFilter={handleCheckBox}
-   
           savedMovies={userMovies}
           onAddMovie={handleLikeChange}
           likedMovies={checkSavedMovie}
