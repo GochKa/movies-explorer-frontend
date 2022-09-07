@@ -5,11 +5,13 @@ function SearchForm(props){
   const [findedMovie, setFindedMovie] = React.useState("");
   const [error, setError] = React.useState("");
   const [formValid, setFormValid] = React.useState(false);
+  const [valueofInput, setValueofInput] = React.useState("")
 
   function handleSearchMovie(e) {
     setFindedMovie(e.target.value);
+    setValueofInput(localStorage.setItem("value", e.target.value))
     if (e.target.value.length === 0) {
-      setError("Нужно ввести ключевое слово");
+      setError("Поле не должно быть пустым");
     } else {
       setError("");
     }
@@ -20,10 +22,11 @@ function SearchForm(props){
     if (formValid) {
       setError("");
       props.onGetMovies(findedMovie);
+      setValueofInput(localStorage.getItem("value"))
     } else {
       setError("Нужно ввести ключевое слово")
     }
-
+    
   }
 
   React.useEffect(() => {
@@ -45,7 +48,7 @@ function SearchForm(props){
           minLength="2"
           maxLength="40"
           onChange={handleSearchMovie}
-          value={findedMovie}
+          value={localStorage.getItem("value")}
           />
       <button type="submit" className="searchform__submit"             
             onClick={handleSubmit}
