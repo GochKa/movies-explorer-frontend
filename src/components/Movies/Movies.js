@@ -12,7 +12,7 @@ function Movies(props){
     <section className="movies">
       <NavTab onClick={props.onMenu}/>
       <div className="movies__filter_desctop">
-        <SearchForm onGetMovies={props.onGetMovies} logOut={props.onSignOut} />
+        <SearchForm onGetMovies={props.onGetMovies}  loggedIn={props.loggedIn}/>
         <FilterCheckbox 
          onFilter={props.onFilter}
          isShortMovie={props.isShortMovie}
