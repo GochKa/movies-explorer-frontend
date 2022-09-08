@@ -183,9 +183,9 @@ function handleUpdateUser(data) {
 const [moviesMessage, setMoviesMessage] = React.useState("");
 const [movies, setMovies] = React.useState([]);
 const [sortedMovies, setSortedMovies] = React.useState([]);
-const findMovie = localStorage.getItem("findedMovies")
+
 // Стейт для отображения на странице
-const [filmsOnPage, setFilmsOnPage] = React.useState(!localStorage.getItem("findedMovies") ? []: JSON.parse(findMovie))
+const [filmsOnPage, setFilmsOnPage] = React.useState(!localStorage.getItem("findedMovies") ? [] : JSON.parse(localStorage.getItem("findedMovies")))
 
 function handleGetMovies(keyword) {
   setMoviesMessage("");
