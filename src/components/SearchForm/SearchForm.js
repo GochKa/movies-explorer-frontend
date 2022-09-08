@@ -49,7 +49,7 @@ function SearchForm(props){
           minLength="2"
           maxLength="40"
           onChange={handleSearchMovie}
-          value={localStorage.getItem("inputValue")}
+          value={localStorage.getItem("inputValue") || ""}
           />
       <button type="submit" className="searchform__submit"             
             onClick={handleSubmit}
