@@ -189,7 +189,7 @@ const [filmsOnPage, setFilmsOnPage] = React.useState(!localStorage.getItem("find
 
 function handleGetMovies(keyword) {
   setMoviesMessage("");
-  const key = new RegExp(keyword, "gi");
+  const key = new RegExp(keyword);
   const findedMovies = movies.filter(
     (item) => key.test(item.nameRU) || key.test(item.nameEN)
   );
@@ -201,11 +201,9 @@ function handleGetMovies(keyword) {
   } else {
     setLoader(true)
     setMoviesMessage("");
-
+    
     localStorage.setItem("findedMovies", JSON.stringify(findedMovies))
-    //console.log(typeof findedMovies)
     setFilmsOnPage(JSON.parse(localStorage.getItem("findedMovies")))
-    //console.log(typeof filmsOnPage)
     const checkedLikes = findedMovies.map((movie) => {
       movie.isSaved = userMovies.some(
         (userMovie) => userMovie.movieId === movie.movieId
@@ -355,6 +353,7 @@ const handleSignOut = () => {
   localStorage.removeItem("movies");
   localStorage.removeItem("sortedMovies");
   localStorage.removeItem("currentUser");
+  localStorage.removeItem("inputValue")
   setFilmsOnPage([])
   setIsShortfilmCheckboxOn(false);
   setUserMovies([]);
