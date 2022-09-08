@@ -1,6 +1,7 @@
 import React from "react";
 import "./SearchForm.css";
 import sbmbutton from "../../images/find_form.svg"
+import sbmbutton_dis from "../../images/find_disable.svg"
 function SearchForm(props){
   const [findedMovie, setFindedMovie] = React.useState("");
   const [error, setError] = React.useState("");
@@ -12,7 +13,7 @@ function SearchForm(props){
     setFindedMovie(e.target.value);
     setInputValue(localStorage.setItem("inputValue", e.target.value))
     if (e.target.value.length === 0) {
-      setError("Поле не должно быть пустым");
+      setError("Нужно ввести ключевое слово");
     } else {
       setError("");
     }
@@ -53,7 +54,7 @@ function SearchForm(props){
       <button type="submit" className="searchform__submit"             
             onClick={handleSubmit}
             >
-        <img src={sbmbutton} alt="кнопка формы"/>
+        <img src={formValid ? sbmbutton : sbmbutton_dis} alt="кнопка формы"/>
       </button>
     </form>
     {!findedMovie ?
