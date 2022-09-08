@@ -54,10 +54,10 @@ function SearchForm(props){
       <button type="submit" className="searchform__submit"             
             onClick={handleSubmit}
             >
-        <img src={formValid ? sbmbutton : sbmbutton_dis} alt="кнопка формы"/>
+        <img src={localStorage.getItem("inputValue") ? sbmbutton : sbmbutton_dis} alt="кнопка формы"/>
       </button>
     </form>
-    {!findedMovie ?
+    {!localStorage.getItem("inputValue") ?
     (<span id="searchform-input-err" className="searchform-item-err">{error}</span>) : ("")}
     
     </section>
