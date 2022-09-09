@@ -1,11 +1,17 @@
-.savedmovies{
+.savedmovies {
   background: #202020;
-  height: max-content;
+  height: 100%;
 
 }
 
-@media screen and (min-width: 1280px){
-  .savedmovies{
-    height: 100vh;
-  }
+.movies-message {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: white;
+  text-align: center;
+  margin-top: 100px;
 }
+

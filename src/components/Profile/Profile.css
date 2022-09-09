@@ -99,6 +99,27 @@
   padding-bottom: 40px;
 }
 
+.form-item-err{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgb(255, 0, 0);
+  text-align: center;
+}
+
+.profile__message{
+  color: green;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+}
+
+.profile__edit-button_disabled{
+  opacity: 0.1;
+}
+
 @media screen and (min-width: 768px) {
   .profile__container {
     margin-top: 236px;

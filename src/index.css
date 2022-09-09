@@ -1,11 +1,6 @@
 @import url(../src/vendors/normalize.css);
 @import url(../src/vendors/Fonts/fonts.css);
 
-#root{
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
 body {
   background-color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,9 +8,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

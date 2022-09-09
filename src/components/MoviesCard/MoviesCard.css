@@ -25,12 +25,41 @@
   height: 21px;
 }
 
+.button_save_active{
+  background-image: url(../../images/save_active.svg);
+  width: 21px;
+  height: 21px;
+}
+
+.button_delete{
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 9px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFFFFF;
+  background: #313131;
+  border: 0;
+  border-radius: 30px;
+  width: 72px;
+  height: 21px;
+}
+
 .card__description-container {
   list-style: none;
   display: flex;
   margin: 0;
-  margin-top: 16px;
   padding: 0;
+  margin-top: 25px;
 }
 
 .card__title {
@@ -41,7 +70,7 @@
   line-height: 15px;
   color: #FFFFFF;
   width: 240px;
-  margin-right: 8px;
+  margin-right: 60px;
 }
 
 .card__duration {
@@ -58,6 +87,11 @@
   border-radius: 3px;
   width: 58px;
   height: 18px;
+}
+
+.card__img{
+  width: 300px;
+  height: 168px;
 }
 
 @media screen and (min-width: 768px) {

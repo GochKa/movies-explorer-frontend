@@ -28,6 +28,17 @@
   cursor: pointer;
 }
 
+.searchform-item-err{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgb(255, 0, 0);
+  margin-left: 55px;
+}
+
+
 @media screen and (min-width: 768px) {
   .searchform {
     width: 708px;
@@ -38,6 +49,10 @@
     font-size: 14px;
     line-height: 18px;
   }
+
+  .searchform-item-err{
+    margin-left: 270px;
+  }
 }
 
 @media screen and (min-width: 1280px){
@@ -45,5 +60,9 @@
     margin: 0;
     padding: 0;
     width: 932px;
+  }
+
+  .searchform-item-err{
+    margin-left: 370px;
   }
 }

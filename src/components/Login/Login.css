@@ -37,10 +37,10 @@
   border-bottom: 1px solid #424242;
   background: inherit;
   width: 260px;
-  margin-bottom: 24px;
+  margin-bottom: 6px;
 }
 
-.login__form_input:last-of-type {
+.form__item-error:last-of-type {
   margin-bottom: 309px;
 }
 
@@ -100,6 +100,21 @@
   margin-left: 7px;
 }
 
+.login__button_disabled {
+  background: #F8F8F8
+}
+
+.form__item-error {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #EE3465;
+  display: flex;
+  width: 260px;
+}
+
 @media screen and (min-width: 400px) {
   .login__form {
     margin-left: 0;
@@ -130,8 +145,11 @@
   .login__form_input {
     width: 390px;
   }
+  .form__item-error{
+    width: 390px;
+  }
 
-  .login__form_input:last-of-type {
+  .form__item-error:last-of-type {
     margin-bottom: 221px;
   }
 

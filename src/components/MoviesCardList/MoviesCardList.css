@@ -1,21 +1,22 @@
 .movies-card-list{
   display: grid;
   grid-template-columns: 300px;
-  grid-template-rows: repeat(auto-fill, 197px);
+  grid-template-rows: repeat(auto-fit, 197px);
   row-gap: 39px;
   margin-top: 50px;
   padding-bottom: 50px;
   justify-content: center;
+  height: max-content;
 }
 
 @media screen and (min-width: 768px){
   .movies-card-list{
     grid-template-columns: repeat(2, 339px);
-    grid-template-rows: repeat(auto-fill, 231px);
+    grid-template-rows: repeat(auto-fit, 231px);
     row-gap: 47px;
     column-gap: 30px;
     margin-top: 80px;
-    padding-bottom: 0;
+    padding-bottom: 50px;
   }
 }
 
@@ -23,5 +24,6 @@
   .movies-card-list{
     grid-template-columns: repeat(3, 360px);
     row-gap: 60px;
+    padding-bottom: 62px;
   }
 }
